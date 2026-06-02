@@ -560,6 +560,7 @@ button {
   padding: 3px;
   background: rgba(255, 255, 255, 0.72);
   border: 2px solid var(--outline);
+  overflow: hidden;
 }
 
 .switch span {
@@ -723,6 +724,7 @@ button {
 
 .summary-actions {
   bottom: calc(104px + env(safe-area-inset-bottom));
+  width: min(100%, var(--content-wide-max));
   padding: 0 var(--edge);
 }
 
@@ -993,7 +995,7 @@ button {
 .detail-actions {
   padding-top: 24px;
   padding-bottom: 32px;
-  width: 80%;
+  width: min(100%, 520px);
   margin-left: auto;
   margin-right: auto;
 }
@@ -1036,8 +1038,8 @@ button {
 }
 
 .liquid-ring {
-  width: 288px;
-  height: 288px;
+  width: min(288px, calc(100vw - var(--edge) * 2));
+  aspect-ratio: 1;
   border-radius: 50%;
   position: relative;
   background: var(--glass);
