@@ -18,7 +18,9 @@
   --shadow: 0 8px 32px rgba(26, 58, 47, 0.05);
   --template-shadow: 0 8px 28px rgba(26, 58, 47, 0.05);
   --radius: 12px;
-  --edge: 20px;
+  --edge: clamp(16px, 4.6vw, 28px);
+  --content-max: 720px;
+  --content-wide-max: 960px;
   --font-ui: "PingFang SC Local", Inter, "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-data: "JetBrains Mono", "PingFang SC Local", Inter, monospace;
   font-family: var(--font-ui);
@@ -109,9 +111,14 @@ button {
 }
 
 .page {
-  max-width: 390px;
+  width: min(100%, var(--content-max));
   margin: 0 auto;
-  padding: 24px var(--edge) 116px;
+  padding: clamp(18px, 4vw, 28px) var(--edge) 116px;
+}
+
+.summary-page,
+.screen-detail .page {
+  width: min(100%, var(--content-wide-max));
 }
 
 .page.compact-top {
@@ -143,8 +150,7 @@ button {
 }
 
 .source-hero-title {
-  white-space: nowrap;
-  font-size: clamp(28px, 8.7vw, 34px);
+  overflow-wrap: anywhere;
 }
 
 .hero p, .body-text {
@@ -221,6 +227,17 @@ button {
   stroke-linejoin: round;
 }
 
+.material-symbols-outlined {
+  width: 1em;
+  min-width: 1em;
+  max-width: 1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex: none;
+}
+
 .icon-fill {
   fill: currentColor;
   stroke: none;
@@ -286,7 +303,8 @@ button {
   font-size: 18px;
   line-height: 24px;
   font-weight: 500;
-  white-space: nowrap;
+  text-align: center;
+  white-space: normal;
   box-shadow: 0 8px 22px rgba(26, 58, 47, 0.12);
 }
 
@@ -336,12 +354,12 @@ button {
 
 .button-row {
   display: grid;
-  grid-template-columns: 0.78fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
   gap: 16px;
 }
 
 .source-button-row {
-  grid-template-columns: 1.14fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 168px), 1fr));
   gap: 12px;
 }
 
@@ -357,7 +375,7 @@ button {
   right: 0;
   bottom: env(safe-area-inset-bottom);
   z-index: 18;
-  max-width: 390px;
+  width: min(100%, var(--content-max));
   margin: 0 auto;
   padding: 20px var(--edge);
   pointer-events: none;
@@ -373,7 +391,7 @@ button {
   bottom: env(safe-area-inset-bottom);
   z-index: 19;
   height: 80px;
-  max-width: 390px;
+  width: min(100%, var(--content-max));
   margin: 0 auto;
   padding: 7px 20px 8px;
   display: grid;
@@ -422,16 +440,17 @@ button {
 
 .scan-grid, .stat-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 136px), 1fr));
+  gap: 12px;
 }
 
 .scan-grid {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 120px), 1fr));
   gap: 16px;
 }
 
 .metric-box {
+  min-width: 0;
   min-height: 76px;
   padding: 12px;
   border-radius: 8px;
@@ -444,11 +463,13 @@ button {
   font-size: 22px;
   line-height: 28px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .mini-stat {
+  min-width: 0;
   min-height: 118px;
-  padding: 14px 8px;
+  padding: 14px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -465,22 +486,22 @@ button {
 
 .mini-stat-label {
   width: 100%;
-  font-size: clamp(13px, 3.7vw, 18px);
+  font-size: 14px;
   line-height: 20px;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 
 .mini-stat-count {
   display: inline-flex;
   align-items: baseline;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 2px;
-  white-space: nowrap;
   color: var(--text);
 }
 
 .mini-stat-count span {
-  font-size: clamp(14px, 4vw, 18px);
+  font-size: 15px;
   line-height: 22px;
   font-weight: 500;
 }
@@ -591,12 +612,12 @@ button {
 
 .summary-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
   gap: 16px;
 }
 
 .summary-tile {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 0.86;
   min-height: 0;
   padding: 16px;
   display: flex;
@@ -706,7 +727,7 @@ button {
 }
 
 .summary-actions .button-row {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
   gap: 16px;
 }
 
@@ -759,8 +780,8 @@ button {
 
 .detail-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr));
+  gap: 12px;
 }
 
 .detail-stat {
@@ -1001,7 +1022,7 @@ button {
 
 .progress-stack {
   width: 100%;
-  max-width: 390px;
+  max-width: var(--content-max);
   display: flex;
   flex-direction: column;
   align-items: center;
