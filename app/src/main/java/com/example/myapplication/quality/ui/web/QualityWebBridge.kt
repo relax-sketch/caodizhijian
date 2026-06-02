@@ -54,6 +54,7 @@ class QualityWebBridge(
                 "setIgnored" -> viewModel.setIgnored(
                     issueFingerprint = data.optString("fingerprint"),
                     ignored = data.optBoolean("ignored"),
+                    reason = data.optString("reason").ifBlank { null },
                 )
                 "setStatusFilter" -> runCatching {
                     viewModel.setDetailStatusFilter(DetailStatusFilter.valueOf(data.optString("value")))

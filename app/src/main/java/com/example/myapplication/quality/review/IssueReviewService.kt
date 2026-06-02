@@ -22,8 +22,8 @@ class IssueReviewService(
         )
     }
 
-    fun ignore(issue: CheckIssue) {
-        annotationStore.markIgnored(issue.fingerprint)
+    fun ignore(issue: CheckIssue, reason: String) {
+        annotationStore.markIgnored(issue.fingerprint, reason.trim())
     }
 
     fun cancelIgnore(issue: CheckIssue) {

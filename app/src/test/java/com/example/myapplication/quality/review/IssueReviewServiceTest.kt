@@ -65,7 +65,7 @@ class IssueReviewServiceTest {
         val run = runWithIssues(listOf(issue))
 
         assertEquals(1, service.review(run).plotResults.single().pendingMandatory.size)
-        service.ignore(issue)
+        service.ignore(issue, "field verified manually")
         assertEquals(1, service.review(run).plotResults.single().ignored.size)
         service.cancelIgnore(issue)
         assertEquals(1, service.review(run).plotResults.single().pendingMandatory.size)
@@ -74,7 +74,7 @@ class IssueReviewServiceTest {
     @Test
     fun recheck_preservesStillMatchingIgnoreAndRemovesResolvedIssue() {
         val service = IssueReviewService(InMemoryAnnotationStore())
-        service.ignore(issue)
+        service.ignore(issue, "field verified manually")
 
         assertEquals(1, service.review(runWithIssues(listOf(issue))).plotResults.single().ignored.size)
         val resolvedReview = service.review(runWithIssues(emptyList()))
@@ -96,7 +96,7 @@ class IssueReviewServiceTest {
     @Test
     fun reviewedPlotResult_detailCountTextIncludesPendingSkippedAndIgnoredCounts() {
         val service = IssueReviewService(InMemoryAnnotationStore())
-        service.ignore(issue)
+        service.ignore(issue, "field verified manually")
 
         val reviewed = service.review(
             runWithIssues(
@@ -106,6 +106,16 @@ class IssueReviewServiceTest {
         ).plotResults.single()
 
         assertEquals("强制性 0 · 提示性 1 · 跳过 1 · 忽略 1", reviewed.detailCountText)
+    }
+
+    @Test
+    fun review_includesIgnoreReasonOnIgnoredIssue() {
+        val service = IssueReviewService(InMemoryAnnotationStore())
+        service.ignore(issue, "checked against source document")
+
+        val ignoredIssue = service.review(runWithIssues(listOf(issue))).plotResults.single().ignored.single()
+
+        assertEquals("checked against source document", ignoredIssue.ignoredReason)
     }
 
     private fun runWithIssues(
@@ -129,12 +139,13 @@ class IssueReviewServiceTest {
         )
 
     private class InMemoryAnnotationStore : IssueAnnotationStore {
-        private val ignored = mutableSetOf<String>()
+        private val ignored = mutableMapOf<String, String>()
 
-        override fun ignoredFingerprints(fingerprints: Set<String>): Set<String> = ignored.intersect(fingerprints)
+        override fun ignoredReasons(fingerprints: Set<String>): Map<String, String> =
+            ignored.filterKeys { it in fingerprints }
 
-        override fun markIgnored(fingerprint: String, ignoredAtEpochMillis: Long) {
-            ignored.add(fingerprint)
+        override fun markIgnored(fingerprint: String, reason: String, ignoredAtEpochMillis: Long) {
+            ignored[fingerprint] = reason
         }
 
         override fun removeIgnored(fingerprint: String) {

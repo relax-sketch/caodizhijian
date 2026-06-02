@@ -263,13 +263,15 @@ class QualityCheckViewModel(application: Application) : AndroidViewModel(applica
         }
     }
 
-    fun setIgnored(issueFingerprint: String, ignored: Boolean) {
+    fun setIgnored(issueFingerprint: String, ignored: Boolean, reason: String? = null) {
         val current = _uiState.value.reviewedRun ?: return
         val issue = current.plotResults
             .flatMap { it.pendingMandatory + it.pendingAdvisory + it.ignored }
             .firstOrNull { it.fingerprint == issueFingerprint } ?: return
         if (ignored) {
-            reviewService.ignore(issue)
+            val trimmedReason = reason?.trim().orEmpty()
+            if (trimmedReason.isBlank()) return
+            reviewService.ignore(issue, trimmedReason)
         } else {
             reviewService.cancelIgnore(issue)
         }

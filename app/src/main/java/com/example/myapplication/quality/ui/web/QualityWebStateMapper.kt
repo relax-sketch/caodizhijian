@@ -132,6 +132,7 @@ private fun CheckIssue.toJson(ignored: Boolean): JSONObject =
         .put("explanation", explanation)
         .put("foundValue", foundValueText())
         .put("ignored", ignored)
+        .put("ignoredReason", ignoredReason ?: JSONObject.NULL)
 
 private fun SkippedRule.toJson(): JSONObject =
     JSONObject()

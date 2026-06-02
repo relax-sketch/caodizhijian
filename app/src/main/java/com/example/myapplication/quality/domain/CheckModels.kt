@@ -23,6 +23,7 @@ data class CheckIssue(
     val locationValues: Map<String, String?>,
     val actualValues: Map<String, String?>,
     val ignored: Boolean = false,
+    val ignoredReason: String? = null,
 )
 
 data class PassedRule(

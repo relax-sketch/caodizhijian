@@ -13,43 +13,47 @@ class SQLiteIssueAnnotationStore(context: Context) :
             """
             CREATE TABLE ignored_issue (
                 fingerprint TEXT PRIMARY KEY NOT NULL,
-                ignored_at_epoch_millis INTEGER NOT NULL
+                ignored_at_epoch_millis INTEGER NOT NULL,
+                ignore_reason TEXT NOT NULL DEFAULT ''
             )
             """.trimIndent(),
         )
     }
 
     override fun onUpgrade(database: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        // The initial schema has no migrations.
+        if (oldVersion < 2) {
+            database.execSQL("ALTER TABLE ignored_issue ADD COLUMN ignore_reason TEXT NOT NULL DEFAULT ''")
+        }
     }
 
-    override fun ignoredFingerprints(fingerprints: Set<String>): Set<String> {
-        if (fingerprints.isEmpty()) return emptySet()
+    override fun ignoredReasons(fingerprints: Set<String>): Map<String, String> {
+        if (fingerprints.isEmpty()) return emptyMap()
         val placeholders = fingerprints.joinToString(",") { "?" }
         return readableDatabase.query(
             "ignored_issue",
-            arrayOf("fingerprint"),
+            arrayOf("fingerprint", "ignore_reason"),
             "fingerprint IN ($placeholders)",
             fingerprints.toTypedArray(),
             null,
             null,
             null,
         ).use { cursor ->
-            buildSet {
+            buildMap {
                 while (cursor.moveToNext()) {
-                    add(cursor.getString(0))
+                    put(cursor.getString(0), cursor.getString(1).orEmpty())
                 }
             }
         }
     }
 
-    override fun markIgnored(fingerprint: String, ignoredAtEpochMillis: Long) {
+    override fun markIgnored(fingerprint: String, reason: String, ignoredAtEpochMillis: Long) {
         writableDatabase.insertWithOnConflict(
             "ignored_issue",
             null,
             ContentValues().apply {
                 put("fingerprint", fingerprint)
                 put("ignored_at_epoch_millis", ignoredAtEpochMillis)
+                put("ignore_reason", reason)
             },
             SQLiteDatabase.CONFLICT_REPLACE,
         )
@@ -61,6 +65,6 @@ class SQLiteIssueAnnotationStore(context: Context) :
 
     private companion object {
         const val DATABASE_NAME = "quality_annotations.db"
-        const val DATABASE_VERSION = 1
+        const val DATABASE_VERSION = 2
     }
 }

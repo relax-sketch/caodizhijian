@@ -1,9 +1,13 @@
 package com.example.myapplication.quality.annotations
 
 interface IssueAnnotationStore {
-    fun ignoredFingerprints(fingerprints: Set<String>): Set<String>
+    fun ignoredReasons(fingerprints: Set<String>): Map<String, String>
 
-    fun markIgnored(fingerprint: String, ignoredAtEpochMillis: Long = System.currentTimeMillis())
+    fun markIgnored(
+        fingerprint: String,
+        reason: String,
+        ignoredAtEpochMillis: Long = System.currentTimeMillis(),
+    )
 
     fun removeIgnored(fingerprint: String)
 }

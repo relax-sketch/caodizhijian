@@ -1,6 +1,7 @@
 (function () {
   const app = document.getElementById("app");
   let state = {};
+  let ignoreDraft = null;
 
   function call(action, payload = {}) {
     if (window.QualityBridge) {
@@ -59,6 +60,24 @@
         ${body}
         ${options.action || ""}
         ${options.dock ? dock(options.dock) : ""}
+        ${ignoreDialog()}
+      </div>`;
+  }
+
+  function ignoreDialog() {
+    if (!ignoreDraft) return "";
+    return `
+      <div class="modal-backdrop" role="presentation">
+        <section class="glass-card liquid-glass-card ignore-dialog" role="dialog" aria-modal="true" aria-labelledby="ignoreReasonTitle">
+          <h2 id="ignoreReasonTitle" class="title">填写忽略理由</h2>
+          <p class="small">忽略前必须记录原因，后续可在已忽略卡片中查看。</p>
+          <textarea class="field ignore-reason-field" data-input="ignoreReason" maxlength="240" placeholder="请输入忽略理由">${esc(ignoreDraft.reason || "")}</textarea>
+          ${ignoreDraft.error ? `<p class="ignore-error">${esc(ignoreDraft.error)}</p>` : ""}
+          <div class="button-row ignore-dialog-actions">
+            <button class="button secondary" data-ignore-cancel="true">取消</button>
+            <button class="button primary" data-ignore-confirm="true">确认忽略</button>
+          </div>
+        </section>
       </div>`;
   }
 
@@ -319,6 +338,9 @@
     const actionClass = rule.ignored ? "rule-action restore" : "rule-action";
     const valueTone = kind === "ADVISORY" ? "warn" : kind === "IGNORED" || kind === "PASSED" ? "outline" : "danger";
     const watermark = kind === "ADVISORY" ? "warning" : kind === "IGNORED" ? "hidden" : kind === "PASSED" ? "check" : "error";
+    const ignoredReasonBlock = rule.ignored
+      ? `<div class="ignore-reason-panel"><span class="label outline">忽略理由</span><p>${esc(rule.ignoredReason || "未记录忽略理由")}</p></div>`
+      : "";
     return `<article class="glass-card liquid-glass-card rule-card ${kind}">
       <div class="rule-watermark">${icon(watermark)}</div>
       <div class="rule-meta">
@@ -333,6 +355,7 @@
         <span><span class="label outline">发现值</span><span class="found-value ${valueTone}">${esc(rule.foundValue)}</span></span>
         ${rule.fingerprint ? `<button class="${actionClass}" data-ignore="${esc(rule.fingerprint)}" data-next="${rule.ignored ? "false" : "true"}">${rule.ignored ? `${icon("restore")} 恢复` : `${icon("hidden")} 忽略`}</button>` : ""}
       </div>
+      ${ignoredReasonBlock}
     </article>`;
   }
 
@@ -379,8 +402,25 @@
   }
 
   document.addEventListener("click", event => {
-    const target = event.target.closest("[data-action],[data-toggle],[data-plot],[data-detail],[data-filter],[data-ignore]");
+    const target = event.target.closest("[data-action],[data-toggle],[data-plot],[data-detail],[data-filter],[data-ignore],[data-ignore-confirm],[data-ignore-cancel]");
     if (!target) return;
+    if (target.dataset.ignoreCancel) {
+      ignoreDraft = null;
+      render(state);
+      return;
+    }
+    if (target.dataset.ignoreConfirm) {
+      const reason = (ignoreDraft && ignoreDraft.reason || "").trim();
+      if (!reason) {
+        ignoreDraft = { ...ignoreDraft, error: "请填写忽略理由" };
+        render(state);
+        return;
+      }
+      call("setIgnored", { fingerprint: ignoreDraft.fingerprint, ignored: true, reason });
+      ignoreDraft = null;
+      render(state);
+      return;
+    }
     const action = target.dataset.action;
     if (action && action !== "noop") call(action);
     if (target.dataset.toggle === "all") call("toggleAll", { enabled: !(state.scope || {}).checkAllMode });
@@ -390,11 +430,22 @@
     if (target.dataset.detail) call("openDetail", { key: target.dataset.detail });
     if (target.dataset.filter === "status") call("setStatusFilter", { value: target.dataset.value });
     if (target.dataset.filter === "table") call("setTableFilter", { value: target.dataset.value });
-    if (target.dataset.ignore) call("setIgnored", { fingerprint: target.dataset.ignore, ignored: target.dataset.next === "true" });
+    if (target.dataset.ignore) {
+      const nextIgnored = target.dataset.next === "true";
+      if (nextIgnored) {
+        ignoreDraft = { fingerprint: target.dataset.ignore, reason: "", error: "" };
+        render(state);
+      } else {
+        call("setIgnored", { fingerprint: target.dataset.ignore, ignored: false });
+      }
+    }
   });
 
   document.addEventListener("input", event => {
     if (event.target.dataset.input === "query") call("setQuery", { query: event.target.value });
+    if (event.target.dataset.input === "ignoreReason" && ignoreDraft) {
+      ignoreDraft = { ...ignoreDraft, reason: event.target.value, error: "" };
+    }
   });
 
   document.addEventListener("change", event => {
