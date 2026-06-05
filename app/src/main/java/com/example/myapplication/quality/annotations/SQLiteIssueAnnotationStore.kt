@@ -14,7 +14,8 @@ class SQLiteIssueAnnotationStore(context: Context) :
             CREATE TABLE ignored_issue (
                 fingerprint TEXT PRIMARY KEY NOT NULL,
                 ignored_at_epoch_millis INTEGER NOT NULL,
-                ignore_reason TEXT NOT NULL DEFAULT ''
+                ignore_reason TEXT NOT NULL DEFAULT '',
+                is_ignored INTEGER NOT NULL DEFAULT 1
             )
             """.trimIndent(),
         )
@@ -24,14 +25,17 @@ class SQLiteIssueAnnotationStore(context: Context) :
         if (oldVersion < 2) {
             database.execSQL("ALTER TABLE ignored_issue ADD COLUMN ignore_reason TEXT NOT NULL DEFAULT ''")
         }
+        if (oldVersion < 3) {
+            database.execSQL("ALTER TABLE ignored_issue ADD COLUMN is_ignored INTEGER NOT NULL DEFAULT 1")
+        }
     }
 
-    override fun ignoredReasons(fingerprints: Set<String>): Map<String, String> {
+    override fun annotations(fingerprints: Set<String>): Map<String, IssueAnnotation> {
         if (fingerprints.isEmpty()) return emptyMap()
         val placeholders = fingerprints.joinToString(",") { "?" }
         return readableDatabase.query(
             "ignored_issue",
-            arrayOf("fingerprint", "ignore_reason"),
+            arrayOf("fingerprint", "ignore_reason", "is_ignored"),
             "fingerprint IN ($placeholders)",
             fingerprints.toTypedArray(),
             null,
@@ -40,7 +44,13 @@ class SQLiteIssueAnnotationStore(context: Context) :
         ).use { cursor ->
             buildMap {
                 while (cursor.moveToNext()) {
-                    put(cursor.getString(0), cursor.getString(1).orEmpty())
+                    put(
+                        cursor.getString(0),
+                        IssueAnnotation(
+                            ignored = cursor.getInt(2) == 1,
+                            reason = cursor.getString(1).orEmpty(),
+                        ),
+                    )
                 }
             }
         }
@@ -54,17 +64,25 @@ class SQLiteIssueAnnotationStore(context: Context) :
                 put("fingerprint", fingerprint)
                 put("ignored_at_epoch_millis", ignoredAtEpochMillis)
                 put("ignore_reason", reason)
+                put("is_ignored", 1)
             },
             SQLiteDatabase.CONFLICT_REPLACE,
         )
     }
 
     override fun removeIgnored(fingerprint: String) {
-        writableDatabase.delete("ignored_issue", "fingerprint = ?", arrayOf(fingerprint))
+        writableDatabase.update(
+            "ignored_issue",
+            ContentValues().apply {
+                put("is_ignored", 0)
+            },
+            "fingerprint = ?",
+            arrayOf(fingerprint),
+        )
     }
 
     private companion object {
         const val DATABASE_NAME = "quality_annotations.db"
-        const val DATABASE_VERSION = 2
+        const val DATABASE_VERSION = 3
     }
 }

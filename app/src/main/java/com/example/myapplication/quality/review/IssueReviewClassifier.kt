@@ -9,14 +9,14 @@ class IssueReviewClassifier(
     private val annotationStore: IssueAnnotationStore,
 ) {
     fun classify(result: PlotCheckResult): ReviewedPlotResult {
-        val ignoredReasons = annotationStore.ignoredReasons(
+        val annotations = annotationStore.annotations(
             result.issues.map(CheckIssue::fingerprint).toSet(),
         )
         val annotatedIssues = result.issues.map { issue ->
-            val ignoredReason = ignoredReasons[issue.fingerprint]
+            val annotation = annotations[issue.fingerprint]
             issue.copy(
-                ignored = ignoredReason != null,
-                ignoredReason = ignoredReason,
+                ignored = annotation?.ignored == true,
+                ignoredReason = annotation?.reason,
             )
         }
         val pendingMandatory = annotatedIssues

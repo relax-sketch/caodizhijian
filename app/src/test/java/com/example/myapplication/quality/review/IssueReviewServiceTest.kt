@@ -1,6 +1,7 @@
 package com.example.myapplication.quality.review
 
 import com.example.myapplication.quality.annotations.IssueAnnotationStore
+import com.example.myapplication.quality.annotations.IssueAnnotation
 import com.example.myapplication.quality.check.QualityCheckRun
 import com.example.myapplication.quality.domain.CheckIssue
 import com.example.myapplication.quality.domain.CheckScope
@@ -118,6 +119,19 @@ class IssueReviewServiceTest {
         assertEquals("checked against source document", ignoredIssue.ignoredReason)
     }
 
+    @Test
+    fun cancelIgnore_keepsReasonAvailableForLaterPrefill() {
+        val store = InMemoryAnnotationStore()
+        val service = IssueReviewService(store)
+        service.ignore(issue, "checked against source document")
+        service.cancelIgnore(issue)
+
+        val reviewedIssue = service.review(runWithIssues(listOf(issue))).plotResults.single().pendingMandatory.single()
+
+        assertEquals("checked against source document", reviewedIssue.ignoredReason)
+        assertEquals(false, store.annotations(setOf(issue.fingerprint)).getValue(issue.fingerprint).ignored)
+    }
+
     private fun runWithIssues(
         issues: List<CheckIssue>,
         skippedRules: List<SkippedRule> = emptyList(),
@@ -139,17 +153,19 @@ class IssueReviewServiceTest {
         )
 
     private class InMemoryAnnotationStore : IssueAnnotationStore {
-        private val ignored = mutableMapOf<String, String>()
+        private val ignored = mutableMapOf<String, IssueAnnotation>()
 
-        override fun ignoredReasons(fingerprints: Set<String>): Map<String, String> =
+        override fun annotations(fingerprints: Set<String>): Map<String, IssueAnnotation> =
             ignored.filterKeys { it in fingerprints }
 
         override fun markIgnored(fingerprint: String, reason: String, ignoredAtEpochMillis: Long) {
-            ignored[fingerprint] = reason
+            ignored[fingerprint] = IssueAnnotation(ignored = true, reason = reason)
         }
 
         override fun removeIgnored(fingerprint: String) {
-            ignored.remove(fingerprint)
+            ignored[fingerprint]?.let { annotation ->
+                ignored[fingerprint] = annotation.copy(ignored = false)
+            }
         }
     }
 }

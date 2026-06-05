@@ -353,7 +353,7 @@
       </div>
       <div class="found">
         <span><span class="label outline">发现值</span><span class="found-value ${valueTone}">${esc(rule.foundValue)}</span></span>
-        ${rule.fingerprint ? `<button class="${actionClass}" data-ignore="${esc(rule.fingerprint)}" data-next="${rule.ignored ? "false" : "true"}">${rule.ignored ? `${icon("restore")} 恢复` : `${icon("hidden")} 忽略`}</button>` : ""}
+        ${rule.fingerprint ? `<button class="${actionClass}" data-ignore="${esc(rule.fingerprint)}" data-next="${rule.ignored ? "false" : "true"}" data-reason="${esc(rule.ignoredReason || "")}">${rule.ignored ? `${icon("restore")} 恢复` : `${icon("hidden")} 忽略`}</button>` : ""}
       </div>
       ${ignoredReasonBlock}
     </article>`;
@@ -433,7 +433,7 @@
     if (target.dataset.ignore) {
       const nextIgnored = target.dataset.next === "true";
       if (nextIgnored) {
-        ignoreDraft = { fingerprint: target.dataset.ignore, reason: "", error: "" };
+        ignoreDraft = { fingerprint: target.dataset.ignore, reason: target.dataset.reason || "", error: "" };
         render(state);
       } else {
         call("setIgnored", { fingerprint: target.dataset.ignore, ignored: false });

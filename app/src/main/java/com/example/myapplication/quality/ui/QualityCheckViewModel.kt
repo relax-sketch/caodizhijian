@@ -43,13 +43,18 @@ class QualityCheckViewModel(application: Application) : AndroidViewModel(applica
     )
     private val reviewService = IssueReviewService(SQLiteIssueAnnotationStore(application))
 
+    private val savedDirectory = directoryStore.savedDirectory()
     private val _uiState = MutableStateFlow(
-        QualityCheckUiState(directory = directoryStore.savedDirectory()),
+        QualityCheckUiState(directory = savedDirectory),
     )
     val uiState: StateFlow<QualityCheckUiState> = _uiState.asStateFlow()
 
     private var runJob: Job? = null
     @Volatile private var cancelRequested = false
+
+    init {
+        savedDirectory?.let(::scan)
+    }
 
     fun onDirectoryPicked(uri: Uri) {
         try {
@@ -69,7 +74,12 @@ class QualityCheckViewModel(application: Application) : AndroidViewModel(applica
     }
 
     fun showSourceSelection() {
-        _uiState.update { it.copy(screen = QualityScreen.SOURCE, detailPlot = null, errorMessage = null) }
+        val directory = _uiState.value.directory
+        if (directory == null) {
+            _uiState.update { it.copy(screen = QualityScreen.SOURCE, detailPlot = null, errorMessage = null) }
+        } else {
+            scan(directory)
+        }
     }
 
     fun showScopeSelection() {

@@ -6269,7 +6269,7 @@
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "坡度与坡向坡位关系异常",
-      "explanation": "坡度小于 5 度时，坡向应为无坡向、坡位应为无坡位；坡度大于 5 度时，必须填写具体坡向及具体坡位。",
+      "explanation": "坡度小于 5 度时，坡位应为无坡或平地，坡向应为无坡向；坡度大于 5 度时，必须填写具体坡向及具体坡位。",
       "requiredTables": [
         "YD_TRCY_PT"
       ],
@@ -6282,7 +6282,7 @@
       "locatorFields": [
         "YD_ID"
       ],
-      "sql": "SELECT YD_ID, PO_DU AS '坡度', PO_WEI AS '坡位', PO_XIANG AS '坡向' FROM \"YD_TRCY_PT\" WHERE YD_ID = :ydId AND ((PO_DU IS NOT NULL AND CAST(PO_DU AS REAL) < 5 AND (PO_WEI <> '0' OR PO_XIANG <> '9')) OR (PO_DU IS NOT NULL AND CAST(PO_DU AS REAL) > 5 AND (PO_WEI = '0' OR PO_XIANG = '9' OR PO_WEI IS NULL OR PO_XIANG IS NULL)))"
+      "sql": "SELECT YD_ID, PO_DU AS '坡度', PO_WEI AS '坡位', PO_XIANG AS '坡向' FROM \"YD_TRCY_PT\" WHERE YD_ID = :ydId AND ((PO_DU IS NOT NULL AND CAST(PO_DU AS REAL) < 5 AND (PO_WEI IS NULL OR PO_WEI NOT IN ('0','6') OR PO_XIANG IS NULL OR PO_XIANG <> '9')) OR (PO_DU IS NOT NULL AND CAST(PO_DU AS REAL) > 5 AND (PO_WEI IS NULL OR PO_WEI IN ('0','6') OR PO_XIANG IS NULL OR PO_XIANG = '9')))"
     },
     {
       "id": "ADD_GRASS_024",
@@ -6290,7 +6290,7 @@
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "地表侵蚀类型与程度关系异常",
-      "explanation": "地表侵蚀类型为无侵蚀时，侵蚀程度必须为无；地表侵蚀类型为有侵蚀时，侵蚀程度不能为无。",
+      "explanation": "地表侵蚀类型为无侵蚀时，地表侵蚀程度应为空；地表侵蚀类型为有侵蚀时，侵蚀程度不能为空或无侵蚀。",
       "requiredTables": [
         "YD_TRCY_PT"
       ],
@@ -6302,7 +6302,7 @@
       "locatorFields": [
         "YD_ID"
       ],
-      "sql": "SELECT YD_ID, DB_QS_LX AS '地表侵蚀类型', DB_QS_CD AS '地表侵蚀程度' FROM \"YD_TRCY_PT\" WHERE YD_ID = :ydId AND ((DB_QS_LX = '5' AND DB_QS_CD <> '0') OR (DB_QS_LX <> '5' AND DB_QS_LX IS NOT NULL AND (DB_QS_CD IS NULL OR DB_QS_CD = '0')))"
+      "sql": "SELECT YD_ID, DB_QS_LX AS '地表侵蚀类型', DB_QS_CD AS '地表侵蚀程度' FROM \"YD_TRCY_PT\" WHERE YD_ID = :ydId AND ((DB_QS_LX = '5' AND DB_QS_CD IS NOT NULL AND TRIM(CAST(DB_QS_CD AS TEXT)) <> '') OR (DB_QS_LX <> '5' AND DB_QS_LX IS NOT NULL AND ((DB_QS_CD IS NULL OR TRIM(CAST(DB_QS_CD AS TEXT)) = '') OR DB_QS_CD = '0')))"
     },
     {
       "id": "ADD_GRASS_025",
@@ -6310,7 +6310,7 @@
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "利用方式与利用强度关系异常",
-      "explanation": "利用方式为无利用时，利用强度必须为无；利用方式为有利用时，利用强度不能为无。",
+      "explanation": "利用方式为其他时，利用强度必须为未利用；利用方式为有利用时，利用强度不能为未利用。",
       "requiredTables": [
         "YD_TRCY_PT"
       ],
@@ -6322,7 +6322,7 @@
       "locatorFields": [
         "YD_ID"
       ],
-      "sql": "SELECT YD_ID, LYFS AS '利用方式', LYQD AS '利用强度' FROM \"YD_TRCY_PT\" WHERE YD_ID = :ydId AND (((LYFS IS NULL OR LYFS = '' OR LYFS = '0') AND LYQD <> '9') OR (LYFS IS NOT NULL AND LYFS <> '' AND LYFS <> '0' AND LYQD = '9'))"
+      "sql": "SELECT YD_ID, LYFS AS '利用方式', LYQD AS '利用强度' FROM \"YD_TRCY_PT\" WHERE YD_ID = :ydId AND ((LYFS = '36' AND (LYQD IS NULL OR LYQD <> '9')) OR (LYFS IS NOT NULL AND LYFS <> '' AND LYFS <> '36' AND LYQD = '9'))"
     },
     {
       "id": "ADD_GRASS_026",
@@ -6618,8 +6618,8 @@
       "sourceId": "grassland-additional-20260526",
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
-      "title": "样线照片少于 3 张",
-      "explanation": "每条样线照片至少 3 张。",
+      "title": "样线照片少于 2 张",
+      "explanation": "每条样线照片至少 2 张。",
       "requiredTables": [
         "YX_TRCY_TB",
         "FS_DOCUMENT"
@@ -6633,7 +6633,7 @@
         "YD_ID",
         "YX_ID"
       ],
-      "sql": "SELECT l.YD_ID, l.YX_ID, COUNT(d.PK_UID) AS \"样线照片数量\" FROM \"YX_TRCY_TB\" l LEFT JOIN \"FS_DOCUMENT\" d ON d.main_body_table_id = \"YX_TRCY_TB\" AND (d.main_body_guid LIKE l.MZGUID || \"%\" OR d.adjunct_path LIKE \"%\" || l.MZGUID || \"%\") WHERE l.YD_ID = :ydId GROUP BY l.YD_ID, l.YX_ID HAVING COUNT(d.PK_UID) < 3"
+      "sql": "SELECT l.YD_ID, l.YX_ID, COUNT(d.PK_UID) AS \"样线照片数量\" FROM \"YX_TRCY_TB\" l LEFT JOIN \"FS_DOCUMENT\" d ON d.main_body_table_id = \"YX_TRCY_TB\" AND (d.main_body_guid LIKE l.MZGUID || \"%\" OR d.adjunct_path LIKE \"%\" || l.MZGUID || \"%\") WHERE l.YD_ID = :ydId GROUP BY l.YD_ID, l.YX_ID HAVING COUNT(d.PK_UID) < 2"
     },
     {
       "id": "ADD_GRASS_039",
@@ -6641,7 +6641,7 @@
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样线终点与样地中心 GNSS 距离异常",
-      "explanation": "样线终点 GNSS 坐标与样地中心点 GNSS 坐标相差应约为 60 米。",
+      "explanation": "样线终点到样地中心桩距离应为 20 米，19.5 至 20.5 米视为合格。",
       "requiredTables": [
         "YX_TRCY_TB",
         "YD_TRCY_PT"
@@ -6656,7 +6656,7 @@
         "YD_ID",
         "YX_ID"
       ],
-      "sql": "SELECT l.YD_ID, l.YX_ID, l.YX_X AS \"样线终点 X\", l.YX_Y AS \"样线终点 Y\", p.ZUOBIAO_X AS \"样地中心 X\", p.ZUOBIAO_Y AS \"样地中心 Y\" FROM \"YX_TRCY_TB\" l JOIN \"YD_TRCY_PT\" p ON p.YD_ID = l.YD_ID WHERE l.YD_ID = :ydId AND l.YX_X IS NOT NULL AND l.YX_Y IS NOT NULL AND p.ZUOBIAO_X IS NOT NULL AND p.ZUOBIAO_Y IS NOT NULL AND (((CAST(l.YX_X AS REAL) - CAST(p.ZUOBIAO_X AS REAL)) * (CAST(l.YX_X AS REAL) - CAST(p.ZUOBIAO_X AS REAL)) + (CAST(l.YX_Y AS REAL) - CAST(p.ZUOBIAO_Y AS REAL)) * (CAST(l.YX_Y AS REAL) - CAST(p.ZUOBIAO_Y AS REAL))) < 2025 OR ((CAST(l.YX_X AS REAL) - CAST(p.ZUOBIAO_X AS REAL)) * (CAST(l.YX_X AS REAL) - CAST(p.ZUOBIAO_X AS REAL)) + (CAST(l.YX_Y AS REAL) - CAST(p.ZUOBIAO_Y AS REAL)) * (CAST(l.YX_Y AS REAL) - CAST(p.ZUOBIAO_Y AS REAL))) > 5625)"
+      "sql": "SELECT l.YD_ID, l.YX_ID, l.YX_X AS \"样线终点 X\", l.YX_Y AS \"样线终点 Y\", p.ZUOBIAO_X AS \"样地中心 X\", p.ZUOBIAO_Y AS \"样地中心 Y\" FROM \"YX_TRCY_TB\" l JOIN \"YD_TRCY_PT\" p ON p.YD_ID = l.YD_ID WHERE l.YD_ID = :ydId AND l.YX_X IS NOT NULL AND l.YX_Y IS NOT NULL AND p.ZUOBIAO_X IS NOT NULL AND p.ZUOBIAO_Y IS NOT NULL AND (((CAST(l.YX_X AS REAL) - CAST(p.ZUOBIAO_X AS REAL)) * (CAST(l.YX_X AS REAL) - CAST(p.ZUOBIAO_X AS REAL)) + (CAST(l.YX_Y AS REAL) - CAST(p.ZUOBIAO_Y AS REAL)) * (CAST(l.YX_Y AS REAL) - CAST(p.ZUOBIAO_Y AS REAL))) < 380.25 OR ((CAST(l.YX_X AS REAL) - CAST(p.ZUOBIAO_X AS REAL)) * (CAST(l.YX_X AS REAL) - CAST(p.ZUOBIAO_X AS REAL)) + (CAST(l.YX_Y AS REAL) - CAST(p.ZUOBIAO_Y AS REAL)) * (CAST(l.YX_Y AS REAL) - CAST(p.ZUOBIAO_Y AS REAL))) > 420.25)"
     },
     {
       "id": "ADD_GRASS_040",
@@ -6788,8 +6788,8 @@
       "sourceId": "grassland-additional-20260526",
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYCC_TB",
-      "title": "测产样方平均高不在植物高度范围内",
-      "explanation": "测产样方的草群平均高取值要在本样方各植物调查表高度的最大值和最小值之间。",
+      "title": "测产样方草群平均高未偏向高覆盖度植物",
+      "explanation": "测产样方草群平均高应相对普通平均值偏向覆盖度更高的植物高度一方。",
       "requiredTables": [
         "YF_TRCYCC_TB",
         "ZWDCB_CCYF_TB"
@@ -6797,21 +6797,22 @@
       "requiredFields": [
         "YD_ID",
         "YF_ID",
-        "CQPJ_GD"
+        "CQPJ_GD",
+        "MZGUID"
       ],
       "locatorFields": [
         "YD_ID",
         "YF_ID"
       ],
-      "sql": "SELECT s.YD_ID, s.YF_ID, s.CQPJ_GD AS \"草群平均高度\", MIN(p.H) AS \"植物最小高度\", MAX(p.H) AS \"植物最大高度\" FROM \"YF_TRCYCC_TB\" s JOIN \"ZWDCB_CCYF_TB\" p ON p.XB_GLH = s.MZGUID WHERE s.YD_ID = :ydId GROUP BY s.YD_ID, s.YF_ID, s.CQPJ_GD HAVING COUNT(p.PK_UID) > 0 AND (CAST(s.CQPJ_GD AS REAL) < MIN(CAST(p.H AS REAL)) OR CAST(s.CQPJ_GD AS REAL) > MAX(CAST(p.H AS REAL)))"
+      "sql": "WITH stats AS (SELECT s.YD_ID, s.YF_ID, s.CQPJ_GD, AVG(CAST(p.H AS REAL)) AS simple_avg, SUM(CAST(p.FVC AS REAL) * CAST(p.H AS REAL)) / SUM(CAST(p.FVC AS REAL)) AS weighted_avg FROM \"YF_TRCYCC_TB\" s JOIN \"ZWDCB_CCYF_TB\" p ON p.XB_GLH = s.MZGUID WHERE s.YD_ID = :ydId AND s.CQPJ_GD IS NOT NULL AND p.H IS NOT NULL AND p.FVC IS NOT NULL GROUP BY s.YD_ID, s.YF_ID, s.CQPJ_GD HAVING COUNT(p.PK_UID) > 0 AND SUM(CAST(p.FVC AS REAL)) > 0) SELECT YD_ID, YF_ID, CQPJ_GD AS \"草群平均高度\", simple_avg AS \"植物高度普通平均值\", weighted_avg AS \"覆盖度加权平均值\" FROM stats WHERE (weighted_avg > simple_avg AND CAST(CQPJ_GD AS REAL) <= simple_avg) OR (weighted_avg < simple_avg AND CAST(CQPJ_GD AS REAL) >= simple_avg)"
     },
     {
       "id": "ADD_GRASS_047",
       "sourceId": "grassland-additional-20260526",
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYCC_TB",
-      "title": "测产样方总盖度不在植物盖度范围内",
-      "explanation": "样方总盖度必须介于植物调查表盖度值之间。",
+      "title": "测产样方总盖度大于植物盖度合计",
+      "explanation": "样方总盖度不应大于植物调查分表盖度值之和。",
       "requiredTables": [
         "YF_TRCYCC_TB",
         "ZWDCB_CCYF_TB"
@@ -6819,13 +6820,14 @@
       "requiredFields": [
         "YD_ID",
         "YF_ID",
-        "ZGD"
+        "ZGD",
+        "MZGUID"
       ],
       "locatorFields": [
         "YD_ID",
         "YF_ID"
       ],
-      "sql": "SELECT s.YD_ID, s.YF_ID, s.ZGD AS \"样方总盖度\", MIN(p.FVC) AS \"植物最小盖度\", MAX(p.FVC) AS \"植物最大盖度\" FROM \"YF_TRCYCC_TB\" s JOIN \"ZWDCB_CCYF_TB\" p ON p.XB_GLH = s.MZGUID WHERE s.YD_ID = :ydId GROUP BY s.YD_ID, s.YF_ID, s.ZGD HAVING COUNT(p.PK_UID) > 0 AND (CAST(s.ZGD AS REAL) < MIN(CAST(p.FVC AS REAL)) OR CAST(s.ZGD AS REAL) > MAX(CAST(p.FVC AS REAL)))"
+      "sql": "SELECT s.YD_ID, s.YF_ID, s.ZGD AS \"样方总盖度\", SUM(CAST(p.FVC AS REAL)) AS \"植物盖度合计\" FROM \"YF_TRCYCC_TB\" s JOIN \"ZWDCB_CCYF_TB\" p ON p.XB_GLH = s.MZGUID WHERE s.YD_ID = :ydId AND s.ZGD IS NOT NULL AND p.FVC IS NOT NULL GROUP BY s.YD_ID, s.YF_ID, s.ZGD HAVING COUNT(p.PK_UID) > 0 AND CAST(s.ZGD AS REAL) > SUM(CAST(p.FVC AS REAL))"
     },
     {
       "id": "ADD_GRASS_048",
@@ -6880,21 +6882,24 @@
       "sourceId": "grassland-additional-20260526",
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_CCYF_TB",
-      "title": "测产植物优势种标记数量异常",
-      "explanation": "同一测产样方的 2 个植物调查表中，是否为优势种应一是一下。",
+      "title": "测产植物分类重复",
+      "explanation": "同一测产样方内植物分类最多为优势可食、优势毒害、其他可食、其他毒害四类，且分类不可重复。",
       "requiredTables": [
         "ZWDCB_CCYF_TB"
       ],
       "requiredFields": [
         "YD_ID",
         "YF_ID",
-        "YOUSHIZHONG"
+        "XB_GLH",
+        "YOUSHIZHONG",
+        "KESHI",
+        "DUHAI"
       ],
       "locatorFields": [
         "YD_ID",
         "YF_ID"
       ],
-      "sql": "SELECT YD_ID, YF_ID, SUM(CASE WHEN YOUSHIZHONG = \"1\" THEN 1 ELSE 0 END) AS \"优势种数量\", COUNT(*) AS \"植物调查数量\" FROM \"ZWDCB_CCYF_TB\" WHERE YD_ID = :ydId GROUP BY YD_ID, YF_ID HAVING COUNT(*) >= 2 AND SUM(CASE WHEN YOUSHIZHONG = \"1\" THEN 1 ELSE 0 END) <> 1"
+      "sql": "WITH classified AS (SELECT YD_ID, YF_ID, XB_GLH, CASE WHEN YOUSHIZHONG = '1' AND KESHI = '1' AND DUHAI = '2' THEN '优势可食' WHEN YOUSHIZHONG = '1' AND KESHI = '2' AND DUHAI = '1' THEN '优势毒害' WHEN YOUSHIZHONG = '2' AND KESHI = '1' AND DUHAI = '2' THEN '其他可食' WHEN YOUSHIZHONG = '2' AND KESHI = '2' AND DUHAI = '1' THEN '其他毒害' END AS plant_category FROM \"ZWDCB_CCYF_TB\" WHERE YD_ID = :ydId AND YOUSHIZHONG IN ('1','2') AND KESHI IN ('1','2') AND DUHAI IN ('1','2')) SELECT YD_ID, YF_ID, plant_category AS \"植物分类\", COUNT(*) AS \"重复分类数量\" FROM classified WHERE plant_category IS NOT NULL GROUP BY YD_ID, YF_ID, XB_GLH, plant_category HAVING COUNT(*) > 1"
     },
     {
       "id": "ADD_GRASS_051",
@@ -6949,7 +6954,7 @@
       "severity": "ADVISORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "测产优势植物名称与样地优势草种不一致",
-      "explanation": "测产样方优势种为是的植物名称至少有一项应与样地调查表优势草种一致。",
+      "explanation": "测产样方优势种为是的植物名称至少有一项应与样地调查表优势草种一致；植物名称和优势草种均按逗号、顿号切分，并兼容样地优势草种中“具xxx的”前缀写法。",
       "requiredTables": [
         "ZWDCB_CCYF_TB",
         "YD_TRCY_PT"
@@ -6964,7 +6969,7 @@
         "YD_ID",
         "YF_ID"
       ],
-      "sql": "WITH RECURSIVE base AS (SELECT p.YD_ID, p.YF_ID, p.ZW_MC, p.YOUSHIZHONG, yd.YS_CZ FROM \"ZWDCB_CCYF_TB\" p JOIN \"YD_TRCY_PT\" yd ON yd.YD_ID = p.YD_ID WHERE p.YD_ID = :ydId), split(YD_ID, YF_ID, plant, rest, YS_CZ) AS (SELECT YD_ID, YF_ID, \"\", REPLACE(REPLACE(REPLACE(REPLACE(TRIM(ZW_MC), \",\", \"，\"), \"、\", \"，\"), \" \", \"\"), \"　\", \"\") || \"，\", YS_CZ FROM base WHERE YOUSHIZHONG = \"1\" AND ZW_MC IS NOT NULL AND TRIM(ZW_MC) <> \"\" UNION ALL SELECT YD_ID, YF_ID, TRIM(SUBSTR(rest, 1, INSTR(rest, \"，\") - 1)), SUBSTR(rest, INSTR(rest, \"，\") + 1), YS_CZ FROM split WHERE rest <> \"\" AND INSTR(rest, \"，\") > 0), summary AS (SELECT YD_ID, YF_ID, GROUP_CONCAT(CASE WHEN YOUSHIZHONG = \"1\" THEN ZW_MC END) AS \"测产优势植物\", YS_CZ AS \"样地优势草种\" FROM base GROUP BY YD_ID, YF_ID, YS_CZ), matches AS (SELECT YD_ID, YF_ID, SUM(CASE WHEN plant <> \"\" AND (\"，\" || REPLACE(REPLACE(REPLACE(REPLACE(YS_CZ, \",\", \"，\"), \"、\", \"，\"), \" \", \"\"), \"　\", \"\") || \"，\") LIKE \"%，\" || plant || \"，%\" THEN 1 ELSE 0 END) AS hit_count FROM split WHERE plant <> \"\" GROUP BY YD_ID, YF_ID) SELECT s.YD_ID, s.YF_ID, s.\"测产优势植物\", s.\"样地优势草种\" FROM summary s LEFT JOIN matches m ON m.YD_ID = s.YD_ID AND m.YF_ID = s.YF_ID WHERE s.\"测产优势植物\" IS NOT NULL AND COALESCE(m.hit_count, 0) = 0"
+      "sql": "WITH RECURSIVE base AS (SELECT p.YD_ID, p.YF_ID, p.ZW_MC, p.YOUSHIZHONG, yd.YS_CZ FROM \"ZWDCB_CCYF_TB\" p JOIN \"YD_TRCY_PT\" yd ON yd.YD_ID = p.YD_ID WHERE p.YD_ID = :ydId), plant_split(YD_ID, YF_ID, plant, rest) AS (SELECT YD_ID, YF_ID, \"\", REPLACE(REPLACE(REPLACE(REPLACE(TRIM(ZW_MC), ',', '，'), '、', '，'), ' ', ''), '　', '') || \"，\" FROM base WHERE YOUSHIZHONG = \"1\" AND ZW_MC IS NOT NULL AND TRIM(ZW_MC) <> \"\" UNION ALL SELECT YD_ID, YF_ID, TRIM(SUBSTR(rest, 1, INSTR(rest, \"，\") - 1)), SUBSTR(rest, INSTR(rest, \"，\") + 1) FROM plant_split WHERE rest <> \"\" AND INSTR(rest, \"，\") > 0), plot_seed AS (SELECT DISTINCT YD_ID, YF_ID, YS_CZ FROM base WHERE YS_CZ IS NOT NULL AND TRIM(YS_CZ) <> \"\"), dominant_split(YD_ID, YF_ID, dominant, rest) AS (SELECT YD_ID, YF_ID, \"\", REPLACE(REPLACE(REPLACE(REPLACE(TRIM(YS_CZ), ',', '，'), '、', '，'), ' ', ''), '　', '') || \"，\" FROM plot_seed UNION ALL SELECT YD_ID, YF_ID, TRIM(SUBSTR(rest, 1, INSTR(rest, \"，\") - 1)), SUBSTR(rest, INSTR(rest, \"，\") + 1) FROM dominant_split WHERE rest <> \"\" AND INSTR(rest, \"，\") > 0), plot_dominants AS (SELECT YD_ID, YF_ID, CASE WHEN dominant LIKE '具%的%' THEN SUBSTR(dominant, INSTR(dominant, '的') + 1) ELSE dominant END AS dominant_plant FROM dominant_split WHERE dominant <> \"\"), summary AS (SELECT YD_ID, YF_ID, GROUP_CONCAT(CASE WHEN YOUSHIZHONG = \"1\" THEN ZW_MC END) AS \"测产优势植物\", YS_CZ AS \"样地优势草种\" FROM base GROUP BY YD_ID, YF_ID, YS_CZ), matches AS (SELECT p.YD_ID, p.YF_ID, COUNT(*) AS hit_count FROM plant_split p JOIN plot_dominants d ON d.YD_ID = p.YD_ID AND d.YF_ID = p.YF_ID AND d.dominant_plant = p.plant WHERE p.plant <> '' GROUP BY p.YD_ID, p.YF_ID) SELECT s.YD_ID, s.YF_ID, s.\"测产优势植物\", s.\"样地优势草种\" FROM summary s LEFT JOIN matches m ON m.YD_ID = s.YD_ID AND m.YF_ID = s.YF_ID WHERE s.\"测产优势植物\" IS NOT NULL AND COALESCE(m.hit_count, 0) = 0"
     },
     {
       "id": "ADD_GRASS_054",
@@ -7096,8 +7101,8 @@
       "sourceId": "grassland-additional-20260526",
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYGC_TB",
-      "title": "观测样方平均高不在植物高度范围内",
-      "explanation": "观测样方的草群平均高取值要在本样方各植物调查表高度的最大值和最小值之间。",
+      "title": "观测样方草群平均高未偏向高覆盖度植物",
+      "explanation": "观测样方草群平均高应相对普通平均值偏向覆盖度更高的植物高度一方。",
       "requiredTables": [
         "YF_TRCYGC_TB",
         "ZWDCB_GCYF_TB"
@@ -7105,21 +7110,22 @@
       "requiredFields": [
         "YD_ID",
         "YF_ID",
-        "CQPJ_GD"
+        "CQPJ_GD",
+        "MZGUID"
       ],
       "locatorFields": [
         "YD_ID",
         "YF_ID"
       ],
-      "sql": "SELECT s.YD_ID, s.YF_ID, s.CQPJ_GD AS \"草群平均高度\", MIN(p.H) AS \"植物最小高度\", MAX(p.H) AS \"植物最大高度\" FROM \"YF_TRCYGC_TB\" s JOIN \"ZWDCB_GCYF_TB\" p ON p.XB_GLH = s.MZGUID WHERE s.YD_ID = :ydId GROUP BY s.YD_ID, s.YF_ID, s.CQPJ_GD HAVING COUNT(p.PK_UID) > 0 AND (CAST(s.CQPJ_GD AS REAL) < MIN(CAST(p.H AS REAL)) OR CAST(s.CQPJ_GD AS REAL) > MAX(CAST(p.H AS REAL)))"
+      "sql": "WITH stats AS (SELECT s.YD_ID, s.YF_ID, s.CQPJ_GD, AVG(CAST(p.H AS REAL)) AS simple_avg, SUM(CAST(p.FVC AS REAL) * CAST(p.H AS REAL)) / SUM(CAST(p.FVC AS REAL)) AS weighted_avg FROM \"YF_TRCYGC_TB\" s JOIN \"ZWDCB_GCYF_TB\" p ON p.XB_GLH = s.MZGUID WHERE s.YD_ID = :ydId AND s.CQPJ_GD IS NOT NULL AND p.H IS NOT NULL AND p.FVC IS NOT NULL GROUP BY s.YD_ID, s.YF_ID, s.CQPJ_GD HAVING COUNT(p.PK_UID) > 0 AND SUM(CAST(p.FVC AS REAL)) > 0) SELECT YD_ID, YF_ID, CQPJ_GD AS \"草群平均高度\", simple_avg AS \"植物高度普通平均值\", weighted_avg AS \"覆盖度加权平均值\" FROM stats WHERE (weighted_avg > simple_avg AND CAST(CQPJ_GD AS REAL) <= simple_avg) OR (weighted_avg < simple_avg AND CAST(CQPJ_GD AS REAL) >= simple_avg)"
     },
     {
       "id": "ADD_GRASS_061",
       "sourceId": "grassland-additional-20260526",
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYGC_TB",
-      "title": "观测样方总盖度不在植物盖度范围内",
-      "explanation": "观测样方总盖度必须介于植物调查表盖度值之间。",
+      "title": "观测样方总盖度大于植物盖度合计",
+      "explanation": "样方总盖度不应大于植物调查分表盖度值之和。",
       "requiredTables": [
         "YF_TRCYGC_TB",
         "ZWDCB_GCYF_TB"
@@ -7127,13 +7133,14 @@
       "requiredFields": [
         "YD_ID",
         "YF_ID",
-        "ZGD"
+        "ZGD",
+        "MZGUID"
       ],
       "locatorFields": [
         "YD_ID",
         "YF_ID"
       ],
-      "sql": "SELECT s.YD_ID, s.YF_ID, s.ZGD AS \"样方总盖度\", MIN(p.FVC) AS \"植物最小盖度\", MAX(p.FVC) AS \"植物最大盖度\" FROM \"YF_TRCYGC_TB\" s JOIN \"ZWDCB_GCYF_TB\" p ON p.XB_GLH = s.MZGUID WHERE s.YD_ID = :ydId GROUP BY s.YD_ID, s.YF_ID, s.ZGD HAVING COUNT(p.PK_UID) > 0 AND (CAST(s.ZGD AS REAL) < MIN(CAST(p.FVC AS REAL)) OR CAST(s.ZGD AS REAL) > MAX(CAST(p.FVC AS REAL)))"
+      "sql": "SELECT s.YD_ID, s.YF_ID, s.ZGD AS \"样方总盖度\", SUM(CAST(p.FVC AS REAL)) AS \"植物盖度合计\" FROM \"YF_TRCYGC_TB\" s JOIN \"ZWDCB_GCYF_TB\" p ON p.XB_GLH = s.MZGUID WHERE s.YD_ID = :ydId AND s.ZGD IS NOT NULL AND p.FVC IS NOT NULL GROUP BY s.YD_ID, s.YF_ID, s.ZGD HAVING COUNT(p.PK_UID) > 0 AND CAST(s.ZGD AS REAL) > SUM(CAST(p.FVC AS REAL))"
     },
     {
       "id": "ADD_GRASS_062",
@@ -7188,21 +7195,24 @@
       "sourceId": "grassland-additional-20260526",
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GCYF_TB",
-      "title": "观测植物优势种标记数量异常",
-      "explanation": "同一观测样方的 2 个植物调查表中，是否为优势种应一是一下。",
+      "title": "观测植物分类重复",
+      "explanation": "同一观测样方内植物分类最多为优势可食、优势毒害、其他可食、其他毒害四类，且分类不可重复。",
       "requiredTables": [
         "ZWDCB_GCYF_TB"
       ],
       "requiredFields": [
         "YD_ID",
         "YF_ID",
-        "YOUSHIZHONG"
+        "XB_GLH",
+        "YOUSHIZHONG",
+        "KESHI",
+        "DUHAI"
       ],
       "locatorFields": [
         "YD_ID",
         "YF_ID"
       ],
-      "sql": "SELECT YD_ID, YF_ID, SUM(CASE WHEN YOUSHIZHONG = \"1\" THEN 1 ELSE 0 END) AS \"优势种数量\", COUNT(*) AS \"植物调查数量\" FROM \"ZWDCB_GCYF_TB\" WHERE YD_ID = :ydId GROUP BY YD_ID, YF_ID HAVING COUNT(*) >= 2 AND SUM(CASE WHEN YOUSHIZHONG = \"1\" THEN 1 ELSE 0 END) <> 1"
+      "sql": "WITH classified AS (SELECT YD_ID, YF_ID, XB_GLH, CASE WHEN YOUSHIZHONG = '1' AND KESHI = '1' AND DUHAI = '2' THEN '优势可食' WHEN YOUSHIZHONG = '1' AND KESHI = '2' AND DUHAI = '1' THEN '优势毒害' WHEN YOUSHIZHONG = '2' AND KESHI = '1' AND DUHAI = '2' THEN '其他可食' WHEN YOUSHIZHONG = '2' AND KESHI = '2' AND DUHAI = '1' THEN '其他毒害' END AS plant_category FROM \"ZWDCB_GCYF_TB\" WHERE YD_ID = :ydId AND YOUSHIZHONG IN ('1','2') AND KESHI IN ('1','2') AND DUHAI IN ('1','2')) SELECT YD_ID, YF_ID, plant_category AS \"植物分类\", COUNT(*) AS \"重复分类数量\" FROM classified WHERE plant_category IS NOT NULL GROUP BY YD_ID, YF_ID, XB_GLH, plant_category HAVING COUNT(*) > 1"
     },
     {
       "id": "ADD_GRASS_065",
@@ -7316,6 +7326,52 @@
         "MC"
       ],
       "sql": "SELECT YD_ID, YF_ID, MC, ZS AS '株丛数' FROM \"ZWDCB_GDCG_TB\" WHERE YD_ID = :ydId AND (ZS IS NOT NULL AND CAST(ZS AS REAL) > 50)"
+    },
+    {
+      "id": "ADD_GRASS_070",
+      "sourceId": "grassland-additional-20260526",
+      "severity": "ADVISORY",
+      "targetTable": "YF_TRCYCC_TB",
+      "title": "测产样方草群平均高偏离主要推荐高度",
+      "explanation": "主要推荐高度按覆盖度百分比加权计算：SUM(FVC / 100 * H)，偏差超过 0.5 厘米时提示核对。",
+      "requiredTables": [
+        "YF_TRCYCC_TB",
+        "ZWDCB_CCYF_TB"
+      ],
+      "requiredFields": [
+        "YD_ID",
+        "YF_ID",
+        "CQPJ_GD",
+        "MZGUID"
+      ],
+      "locatorFields": [
+        "YD_ID",
+        "YF_ID"
+      ],
+      "sql": "WITH stats AS (SELECT s.YD_ID, s.YF_ID, s.CQPJ_GD, SUM(CAST(p.FVC AS REAL) / 100.0 * CAST(p.H AS REAL)) AS recommended_height FROM \"YF_TRCYCC_TB\" s JOIN \"ZWDCB_CCYF_TB\" p ON p.XB_GLH = s.MZGUID WHERE s.YD_ID = :ydId AND s.CQPJ_GD IS NOT NULL AND p.H IS NOT NULL AND p.FVC IS NOT NULL GROUP BY s.YD_ID, s.YF_ID, s.CQPJ_GD HAVING COUNT(p.PK_UID) > 0) SELECT YD_ID, YF_ID, CQPJ_GD AS \"草群平均高度\", recommended_height AS \"主要推荐高度\" FROM stats WHERE ABS(CAST(CQPJ_GD AS REAL) - recommended_height) > 0.5"
+    },
+    {
+      "id": "ADD_GRASS_071",
+      "sourceId": "grassland-additional-20260526",
+      "severity": "ADVISORY",
+      "targetTable": "YF_TRCYGC_TB",
+      "title": "观测样方草群平均高偏离主要推荐高度",
+      "explanation": "主要推荐高度按覆盖度百分比加权计算：SUM(FVC / 100 * H)，偏差超过 0.5 厘米时提示核对。",
+      "requiredTables": [
+        "YF_TRCYGC_TB",
+        "ZWDCB_GCYF_TB"
+      ],
+      "requiredFields": [
+        "YD_ID",
+        "YF_ID",
+        "CQPJ_GD",
+        "MZGUID"
+      ],
+      "locatorFields": [
+        "YD_ID",
+        "YF_ID"
+      ],
+      "sql": "WITH stats AS (SELECT s.YD_ID, s.YF_ID, s.CQPJ_GD, SUM(CAST(p.FVC AS REAL) / 100.0 * CAST(p.H AS REAL)) AS recommended_height FROM \"YF_TRCYGC_TB\" s JOIN \"ZWDCB_GCYF_TB\" p ON p.XB_GLH = s.MZGUID WHERE s.YD_ID = :ydId AND s.CQPJ_GD IS NOT NULL AND p.H IS NOT NULL AND p.FVC IS NOT NULL GROUP BY s.YD_ID, s.YF_ID, s.CQPJ_GD HAVING COUNT(p.PK_UID) > 0) SELECT YD_ID, YF_ID, CQPJ_GD AS \"草群平均高度\", recommended_height AS \"主要推荐高度\" FROM stats WHERE ABS(CAST(CQPJ_GD AS REAL) - recommended_height) > 0.5"
     }
   ]
 }

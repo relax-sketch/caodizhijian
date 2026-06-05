@@ -1,6 +1,10 @@
 package com.example.myapplication.quality.rules
 
 object TemporarilyDisabledRules {
+    private val temporarilyDisabledRuleIds = setOf(
+        "ADD_GRASS_034",
+    )
+
     private val encryptedSampleTables = setOf(
         "YD_JM_PT",
         "YF_JMCC_TB",
@@ -13,7 +17,8 @@ object TemporarilyDisabledRules {
         val targetTable = rule.targetTable.uppercase()
         val requiredTables = rule.requiredTables.map(String::uppercase)
         val sql = rule.sql.uppercase()
-        return targetTable in encryptedSampleTables ||
+        return rule.id in temporarilyDisabledRuleIds ||
+            targetTable in encryptedSampleTables ||
             requiredTables.any { it in encryptedSampleTables } ||
             encryptedSampleTables.any { table -> table in sql }
     }

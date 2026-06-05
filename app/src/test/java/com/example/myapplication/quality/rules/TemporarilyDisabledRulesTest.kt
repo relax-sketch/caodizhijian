@@ -8,12 +8,13 @@ import org.junit.Test
 
 class TemporarilyDisabledRulesTest {
     @Test
-    fun packagedRuleSet_disablesExactlySeventyJmRules() {
+    fun packagedRuleSet_disablesJmRulesAndTemporaryAdditionalRules() {
         val rules = EmbeddedRuleSetParser.parse(assetRuleSet().readText()).rules
         val disabled = rules.filter(TemporarilyDisabledRules::isDisabled)
 
-        assertEquals(70, disabled.size)
-        assertEquals(rules.size - 70, TemporarilyDisabledRules.enabledRules(rules).size)
+        assertEquals(71, disabled.size)
+        assertEquals(rules.size - 71, TemporarilyDisabledRules.enabledRules(rules).size)
+        assertTrue(disabled.any { it.id == "ADD_GRASS_034" })
     }
 
     @Test
@@ -28,13 +29,20 @@ class TemporarilyDisabledRulesTest {
         assertFalse(TemporarilyDisabledRules.isDisabled(rule()))
     }
 
+    @Test
+    fun disabledPredicate_matchesTemporarilyDisabledRuleIds() {
+        assertTrue(TemporarilyDisabledRules.isDisabled(rule(id = "ADD_GRASS_034", targetTable = "YX_TRCY_TB")))
+        assertFalse(TemporarilyDisabledRules.isDisabled(rule(id = "ADD_GRASS_033", targetTable = "YX_TRCY_TB")))
+    }
+
     private fun rule(
+        id: String = "TEST",
         targetTable: String = "YD_TRCY_PT",
         requiredTables: List<String> = listOf(targetTable),
         sql: String = "SELECT * FROM $targetTable WHERE YD_ID = :ydId",
     ): EmbeddedRule =
         EmbeddedRule(
-            id = "TEST",
+            id = id,
             sourceId = "test",
             severity = RuleSeverity.MANDATORY,
             targetTable = targetTable,
