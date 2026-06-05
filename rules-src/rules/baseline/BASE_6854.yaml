@@ -1,0 +1,19 @@
+id: BASE_6854
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: ZWDCB_JMGDCG_TB
+title: 株丛类型为空
+explanation: 来源于 ZDB 内置启用规则：株丛类型为空。
+requiredTables:
+  - ZWDCB_JMGDCG_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - MC
+locatorFields:
+  - YD_ID
+  - YF_ID
+  - MC
+sql: |-
+  SELECT * FROM "ZWDCB_JMGDCG_TB" WHERE YD_ID = :ydId AND (ZC_LX IS NULL OR ZC_LX ='' OR ZC_LX =' ')

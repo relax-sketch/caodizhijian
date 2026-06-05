@@ -14,7 +14,7 @@ class TemporarilyDisabledRulesTest {
 
         assertEquals(71, disabled.size)
         assertEquals(rules.size - 71, TemporarilyDisabledRules.enabledRules(rules).size)
-        assertTrue(disabled.any { it.id == "ADD_GRASS_034" })
+        assertTrue(disabled.any { it.id == "ADD_GRASS_034" && !it.enabled })
     }
 
     @Test
@@ -30,8 +30,9 @@ class TemporarilyDisabledRulesTest {
     }
 
     @Test
-    fun disabledPredicate_matchesTemporarilyDisabledRuleIds() {
-        assertTrue(TemporarilyDisabledRules.isDisabled(rule(id = "ADD_GRASS_034", targetTable = "YX_TRCY_TB")))
+    fun disabledPredicate_matchesRuleEnabledFlag() {
+        assertTrue(TemporarilyDisabledRules.isDisabled(rule(enabled = false)))
+        assertFalse(TemporarilyDisabledRules.isDisabled(rule(id = "ADD_GRASS_034", targetTable = "YX_TRCY_TB")))
         assertFalse(TemporarilyDisabledRules.isDisabled(rule(id = "ADD_GRASS_033", targetTable = "YX_TRCY_TB")))
     }
 
@@ -40,6 +41,7 @@ class TemporarilyDisabledRulesTest {
         targetTable: String = "YD_TRCY_PT",
         requiredTables: List<String> = listOf(targetTable),
         sql: String = "SELECT * FROM $targetTable WHERE YD_ID = :ydId",
+        enabled: Boolean = true,
     ): EmbeddedRule =
         EmbeddedRule(
             id = id,
@@ -52,6 +54,7 @@ class TemporarilyDisabledRulesTest {
             requiredFields = listOf("YD_ID"),
             locatorFields = listOf("YD_ID"),
             sql = sql,
+            enabled = enabled,
         )
 
     private fun assetRuleSet(): File =

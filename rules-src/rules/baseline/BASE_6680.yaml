@@ -1,0 +1,21 @@
+id: BASE_6680
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_JM_PT
+title: 当坡位不为无坡时，坡向为空
+explanation: 来源于 ZDB 内置启用规则：当坡位不为无坡时，坡向为空。
+requiredTables:
+  - YD_JM_PT
+requiredFields:
+  - YD_ID
+  - XIAN
+  - XIANG
+  - CUN
+locatorFields:
+  - XIAN
+  - XIANG
+  - CUN
+  - YD_ID
+sql: |-
+  SELECT * FROM "YD_JM_PT" WHERE YD_ID = :ydId AND ((PO_XIANG IS NULL OR PO_XIANG ='' OR PO_XIANG =' ') and PO_WEI!='0')

@@ -1,0 +1,17 @@
+id: ADD_GRASS_025
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_TRCY_PT
+title: 利用方式与利用强度关系异常
+explanation: 利用方式为其他时，利用强度必须为未利用；利用方式为有利用时，利用强度不能为未利用。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - LYFS
+  - LYQD
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, LYFS AS '利用方式', LYQD AS '利用强度' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND ((LYFS = '36' AND (LYQD IS NULL OR LYQD <> '9')) OR (LYFS IS NOT NULL AND LYFS <> '' AND LYFS <> '36' AND LYQD = '9'))

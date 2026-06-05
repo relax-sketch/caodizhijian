@@ -1,0 +1,17 @@
+id: ADD_GRASS_024
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_TRCY_PT
+title: 地表侵蚀类型与程度关系异常
+explanation: 地表侵蚀类型为无侵蚀时，地表侵蚀程度应为空；地表侵蚀类型为有侵蚀时，侵蚀程度不能为空或无侵蚀。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - DB_QS_LX
+  - DB_QS_CD
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, DB_QS_LX AS '地表侵蚀类型', DB_QS_CD AS '地表侵蚀程度' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND ((DB_QS_LX = '5' AND DB_QS_CD IS NOT NULL AND TRIM(CAST(DB_QS_CD AS TEXT)) <> '') OR (DB_QS_LX <> '5' AND DB_QS_LX IS NOT NULL AND ((DB_QS_CD IS NULL OR TRIM(CAST(DB_QS_CD AS TEXT)) = '') OR DB_QS_CD = '0')))

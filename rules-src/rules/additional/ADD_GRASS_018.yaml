@@ -1,0 +1,16 @@
+id: ADD_GRASS_018
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YD_TRCY_PT
+title: 裸斑面积比例超过 40%
+explanation: 裸斑面积比例超过 40% 时提示人工检查核对。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - LB_BL
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, LB_BL AS '裸斑面积比例' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND (LB_BL IS NOT NULL AND CAST(LB_BL AS REAL) > 40)

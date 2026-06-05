@@ -1,0 +1,21 @@
+id: ADD_GRASS_050
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: ZWDCB_CCYF_TB
+title: 测产植物分类重复
+explanation: 同一测产样方内植物分类最多为优势可食、优势毒害、其他可食、其他毒害四类，且分类不可重复。
+requiredTables:
+  - ZWDCB_CCYF_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - XB_GLH
+  - YOUSHIZHONG
+  - KESHI
+  - DUHAI
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  WITH classified AS (SELECT YD_ID, YF_ID, XB_GLH, CASE WHEN YOUSHIZHONG = '1' AND KESHI = '1' AND DUHAI = '2' THEN '优势可食' WHEN YOUSHIZHONG = '1' AND KESHI = '2' AND DUHAI = '1' THEN '优势毒害' WHEN YOUSHIZHONG = '2' AND KESHI = '1' AND DUHAI = '2' THEN '其他可食' WHEN YOUSHIZHONG = '2' AND KESHI = '2' AND DUHAI = '1' THEN '其他毒害' END AS plant_category FROM "ZWDCB_CCYF_TB" WHERE YD_ID = :ydId AND YOUSHIZHONG IN ('1','2') AND KESHI IN ('1','2') AND DUHAI IN ('1','2')) SELECT YD_ID, YF_ID, plant_category AS "植物分类", COUNT(*) AS "重复分类数量" FROM classified WHERE plant_category IS NOT NULL GROUP BY YD_ID, YF_ID, XB_GLH, plant_category HAVING COUNT(*) > 1

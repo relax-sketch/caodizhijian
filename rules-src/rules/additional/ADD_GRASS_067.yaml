@@ -1,0 +1,18 @@
+id: ADD_GRASS_067
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YF_TRCY_TB
+title: 高大草灌样方面积不是 100 或 25
+explanation: 高大草灌样方面积应为 100 或 25。
+requiredTables:
+  - YF_TRCY_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - MIAN_JI
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT YD_ID, YF_ID, MIAN_JI AS '面积' FROM "YF_TRCY_TB" WHERE YD_ID = :ydId AND (MIAN_JI IS NULL OR CAST(MIAN_JI AS REAL) NOT IN (100, 25))

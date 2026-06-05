@@ -1,0 +1,18 @@
+id: ADD_GRASS_017
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YD_TRCY_PT
+title: 其他草地型命名需核对
+explanation: 草地型为其他时，草地型命名应为优势草种加“型”。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - CD_XING
+  - CD_XING_QT
+  - YS_CZ
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, CD_XING AS '草地型', CD_XING_QT AS '其他草地型', YS_CZ AS '优势草种' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND (CD_XING = '826' AND (CD_XING_QT IS NULL OR YS_CZ IS NULL OR CD_XING_QT NOT LIKE '%' || YS_CZ || '%'))

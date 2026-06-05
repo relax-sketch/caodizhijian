@@ -1,0 +1,14 @@
+id: ADD_GRASS_000
+sourceId: grassland-additional-20260526
+severity: MANDATORY
+targetTable: YD_TRCY_PT
+title: Rule title
+explanation: Rule explanation.
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID FROM YD_TRCY_PT WHERE YD_ID = :ydId

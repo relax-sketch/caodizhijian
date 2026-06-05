@@ -1,0 +1,17 @@
+id: ADD_GRASS_008
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_TRCY_PT
+title: 植被结构未填写或与覆盖类型不对应
+explanation: 植被结构必填，且应与植被覆盖类型对应。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - ZB_JG
+  - VEGECOVER_TYPE
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, ZB_JG AS '植被结构', VEGECOVER_TYPE AS '植被覆盖类型' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND ((ZB_JG IS NULL OR TRIM(CAST(ZB_JG AS TEXT)) = '') OR (VEGECOVER_TYPE = '2100' AND ZB_JG <> '1') OR (VEGECOVER_TYPE = '2200' AND ZB_JG <> '2'))

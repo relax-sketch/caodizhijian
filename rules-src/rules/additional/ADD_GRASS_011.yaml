@@ -1,0 +1,16 @@
+id: ADD_GRASS_011
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YD_TRCY_PT
+title: 植被盖度低于 60%
+explanation: 植被盖度小于 60% 时提示人工检查核对。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - CDGD
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, CDGD AS '植被盖度' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND (CDGD IS NOT NULL AND CAST(CDGD AS REAL) < 60)

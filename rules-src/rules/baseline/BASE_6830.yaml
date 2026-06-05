@@ -1,0 +1,17 @@
+id: BASE_6830
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YF_TRCY_TB
+title: 面积为空
+explanation: 来源于 ZDB 内置启用规则：面积为空。
+requiredTables:
+  - YF_TRCY_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT * FROM "YF_TRCY_TB" WHERE YD_ID = :ydId AND (MIAN_JI IS NULL OR TRIM( MIAN_JI) ='' OR MIAN_JI =0)

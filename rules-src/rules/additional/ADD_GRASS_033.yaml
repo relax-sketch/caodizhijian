@@ -1,0 +1,19 @@
+id: ADD_GRASS_033
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YX_TRCY_TB
+title: 样线盖度与样地盖度差值超过 20%
+explanation: 样线盖度与样地盖度差值超过 20% 时提示人工检查核对。
+requiredTables:
+  - YX_TRCY_TB
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - YX_ID
+  - YX_GD
+locatorFields:
+  - YD_ID
+  - YX_ID
+sql: |-
+  SELECT l.YD_ID, l.YX_ID, l.YX_GD AS '样线盖度', p.CDGD AS '样地盖度' FROM "YX_TRCY_TB" l JOIN "YD_TRCY_PT" p ON p.YD_ID = l.YD_ID WHERE l.YD_ID = :ydId AND l.YX_GD IS NOT NULL AND p.CDGD IS NOT NULL AND ABS(CAST(l.YX_GD AS REAL) - CAST(p.CDGD AS REAL)) > 20

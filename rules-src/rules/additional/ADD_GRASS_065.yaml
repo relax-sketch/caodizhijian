@@ -1,0 +1,21 @@
+id: ADD_GRASS_065
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: ZWDCB_GCYF_TB
+title: 观测植物照片数量不足
+explanation: 植物名称写了几个，相应植物调查表下就要有几张照片。
+requiredTables:
+  - ZWDCB_GCYF_TB
+  - FS_DOCUMENT
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - ZW_MC
+  - MZGUID
+locatorFields:
+  - YD_ID
+  - YF_ID
+  - ZW_MC
+sql: |-
+  SELECT p.YD_ID, p.YF_ID, p.ZW_MC, COUNT(d.PK_UID) AS "植物照片数量" FROM "ZWDCB_GCYF_TB" p LEFT JOIN "FS_DOCUMENT" d ON d.main_body_table_id = "ZWDCB_GCYF_TB" AND (d.main_body_guid LIKE p.MZGUID || "%" OR d.adjunct_path LIKE "%" || p.MZGUID || "%") WHERE p.YD_ID = :ydId GROUP BY p.YD_ID, p.YF_ID, p.ZW_MC, p.MZGUID HAVING COUNT(d.PK_UID) < 1

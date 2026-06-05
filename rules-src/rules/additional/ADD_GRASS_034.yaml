@@ -1,0 +1,19 @@
+id: ADD_GRASS_034
+sourceId: grassland-additional-20260526
+enabled: false
+severity: MANDATORY
+targetTable: YX_TRCY_TB
+title: 样线盖度与裸斑面积比例之和不是 100%
+explanation: 样线盖度与裸斑面积比例之和必须为 100%。
+requiredTables:
+  - YX_TRCY_TB
+requiredFields:
+  - YD_ID
+  - YX_ID
+  - YX_GD
+  - YX_LBMJBL
+locatorFields:
+  - YD_ID
+  - YX_ID
+sql: |-
+  SELECT YD_ID, YX_ID, YX_GD AS '样线盖度', YX_LBMJBL AS '裸斑面积比例' FROM "YX_TRCY_TB" WHERE YD_ID = :ydId AND (YX_GD IS NULL OR YX_LBMJBL IS NULL OR ABS((CAST(YX_GD AS REAL) + CAST(YX_LBMJBL AS REAL)) - 100) > 0.0001)

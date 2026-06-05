@@ -1,0 +1,16 @@
+id: ADD_GRASS_021
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YD_TRCY_PT
+title: 覆沙厚度超过 10 厘米
+explanation: 覆沙厚度超过 10 厘米时提示人工检查核对。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - FS_HD
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, FS_HD AS '覆沙厚度' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND (FS_HD IS NOT NULL AND CAST(FS_HD AS REAL) > 10)

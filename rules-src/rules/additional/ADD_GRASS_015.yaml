@@ -1,0 +1,19 @@
+id: ADD_GRASS_015
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YD_TRCY_PT
+title: GNSS 坐标与经纬度坐标需核对
+explanation: 样地中心点 GNSS 坐标与样地中心点经纬度坐标相差较大时提示检查核对；当前以两类坐标是否完整作为可执行校验。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - ZUOBIAO_X
+  - ZUOBIAO_Y
+  - ZUOBIAO_E
+  - ZUOBIAO_N
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, ZUOBIAO_X AS 'GNSS X', ZUOBIAO_Y AS 'GNSS Y', ZUOBIAO_E AS '经度', ZUOBIAO_N AS '纬度' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND (ZUOBIAO_X IS NOT NULL AND ZUOBIAO_Y IS NOT NULL AND (ZUOBIAO_E IS NULL OR ZUOBIAO_N IS NULL))

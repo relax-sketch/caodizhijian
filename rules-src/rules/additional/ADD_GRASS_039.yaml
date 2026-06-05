@@ -1,0 +1,20 @@
+id: ADD_GRASS_039
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YX_TRCY_TB
+title: 样线终点与样地中心 GNSS 距离异常
+explanation: 样线终点到样地中心桩距离应为 20 米，19.5 至 20.5 米视为合格。
+requiredTables:
+  - YX_TRCY_TB
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - YX_ID
+  - YX_X
+  - YX_Y
+locatorFields:
+  - YD_ID
+  - YX_ID
+sql: |-
+  SELECT l.YD_ID, l.YX_ID, l.YX_X AS "样线终点 X", l.YX_Y AS "样线终点 Y", p.ZUOBIAO_X AS "样地中心 X", p.ZUOBIAO_Y AS "样地中心 Y" FROM "YX_TRCY_TB" l JOIN "YD_TRCY_PT" p ON p.YD_ID = l.YD_ID WHERE l.YD_ID = :ydId AND l.YX_X IS NOT NULL AND l.YX_Y IS NOT NULL AND p.ZUOBIAO_X IS NOT NULL AND p.ZUOBIAO_Y IS NOT NULL AND (((CAST(l.YX_X AS REAL) - CAST(p.ZUOBIAO_X AS REAL)) * (CAST(l.YX_X AS REAL) - CAST(p.ZUOBIAO_X AS REAL)) + (CAST(l.YX_Y AS REAL) - CAST(p.ZUOBIAO_Y AS REAL)) * (CAST(l.YX_Y AS REAL) - CAST(p.ZUOBIAO_Y AS REAL))) < 380.25 OR ((CAST(l.YX_X AS REAL) - CAST(p.ZUOBIAO_X AS REAL)) * (CAST(l.YX_X AS REAL) - CAST(p.ZUOBIAO_X AS REAL)) + (CAST(l.YX_Y AS REAL) - CAST(p.ZUOBIAO_Y AS REAL)) * (CAST(l.YX_Y AS REAL) - CAST(p.ZUOBIAO_Y AS REAL))) > 420.25)

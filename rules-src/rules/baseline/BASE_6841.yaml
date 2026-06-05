@@ -1,0 +1,19 @@
+id: BASE_6841
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: ZWDCB_GDCG_TB
+title: 株丛数为空
+explanation: 来源于 ZDB 内置启用规则：株丛数为空。
+requiredTables:
+  - ZWDCB_GDCG_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - MC
+locatorFields:
+  - YD_ID
+  - YF_ID
+  - MC
+sql: |-
+  SELECT * FROM "ZWDCB_GDCG_TB" WHERE YD_ID = :ydId AND (ZS IS NULL OR ZS<0 OR TRIM(ZS)='')

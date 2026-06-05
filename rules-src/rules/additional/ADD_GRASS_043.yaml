@@ -1,0 +1,18 @@
+id: ADD_GRASS_043
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YF_TRCYCC_TB
+title: 测产样方草群平均高度超出 5 至 100
+explanation: 测产样方草群平均高度低于 5 或高于 100 时提示人工检查核对。
+requiredTables:
+  - YF_TRCYCC_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - CQPJ_GD
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT YD_ID, YF_ID, CQPJ_GD AS '草群平均高度' FROM "YF_TRCYCC_TB" WHERE YD_ID = :ydId AND (CQPJ_GD IS NOT NULL AND (CAST(CQPJ_GD AS REAL) < 5 OR CAST(CQPJ_GD AS REAL) > 100))

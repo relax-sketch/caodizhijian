@@ -1,0 +1,16 @@
+id: ADD_GRASS_019
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YD_TRCY_PT
+title: 砾石覆盖面积比例超过 20%
+explanation: 砾石覆盖面积比例超过 20% 时提示人工检查核对。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - LSFG_BL
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, LSFG_BL AS '砾石覆盖面积比例' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND (LSFG_BL IS NOT NULL AND CAST(LSFG_BL AS REAL) > 20)

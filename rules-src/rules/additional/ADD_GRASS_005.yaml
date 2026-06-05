@@ -1,0 +1,16 @@
+id: ADD_GRASS_005
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YD_TRCY_PT
+title: 草地类不在湖北允许范围
+explanation: 草地类只能填写为热性草丛、热性灌草丛、低地草甸、山地草甸、暖性草丛、暖性灌草丛。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - CD_L
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, CD_L AS '草地类' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND ((CD_L IS NULL OR TRIM(CAST(CD_L AS TEXT)) = '') OR CD_L NOT IN ('8', '9', '14', '15', '16', '17'))

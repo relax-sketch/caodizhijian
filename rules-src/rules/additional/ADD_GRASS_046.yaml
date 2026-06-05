@@ -1,0 +1,20 @@
+id: ADD_GRASS_046
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YF_TRCYCC_TB
+title: 测产样方草群平均高未偏向高覆盖度植物
+explanation: 测产样方草群平均高应相对普通平均值偏向覆盖度更高的植物高度一方。
+requiredTables:
+  - YF_TRCYCC_TB
+  - ZWDCB_CCYF_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - CQPJ_GD
+  - MZGUID
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  WITH stats AS (SELECT s.YD_ID, s.YF_ID, s.CQPJ_GD, AVG(CAST(p.H AS REAL)) AS simple_avg, SUM(CAST(p.FVC AS REAL) * CAST(p.H AS REAL)) / SUM(CAST(p.FVC AS REAL)) AS weighted_avg FROM "YF_TRCYCC_TB" s JOIN "ZWDCB_CCYF_TB" p ON p.XB_GLH = s.MZGUID WHERE s.YD_ID = :ydId AND s.CQPJ_GD IS NOT NULL AND p.H IS NOT NULL AND p.FVC IS NOT NULL GROUP BY s.YD_ID, s.YF_ID, s.CQPJ_GD HAVING COUNT(p.PK_UID) > 0 AND SUM(CAST(p.FVC AS REAL)) > 0) SELECT YD_ID, YF_ID, CQPJ_GD AS "草群平均高度", simple_avg AS "植物高度普通平均值", weighted_avg AS "覆盖度加权平均值" FROM stats WHERE (weighted_avg > simple_avg AND CAST(CQPJ_GD AS REAL) <= simple_avg) OR (weighted_avg < simple_avg AND CAST(CQPJ_GD AS REAL) >= simple_avg)

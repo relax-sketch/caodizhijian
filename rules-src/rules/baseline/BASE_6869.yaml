@@ -1,0 +1,21 @@
+id: BASE_6869
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_RGCD_PT
+title: 种植年份为空
+explanation: 来源于 ZDB 内置启用规则：种植年份为空。
+requiredTables:
+  - YD_RGCD_PT
+requiredFields:
+  - YD_ID
+  - XIAN
+  - XIANG
+  - CUN
+locatorFields:
+  - XIAN
+  - XIANG
+  - CUN
+  - YD_ID
+sql: |-
+  SELECT * FROM "YD_RGCD_PT" WHERE YD_ID = :ydId AND (ZZ_NF IS NULL OR ZZ_NF ='' OR ZZ_NF =' ')

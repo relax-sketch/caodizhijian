@@ -1,0 +1,9 @@
+sources:
+  - id: zdb-baseline-20260526
+    kind: BASE_SNAPSHOT
+    label: ZDB 启用规则快照
+    description: 从已验证 ZDB 样本中提取的启用质检规则快照。
+  - id: grassland-additional-20260526
+    kind: ADDITIONAL
+    label: 草地质检附加规则
+    description: 从草地样地调查质检规则表逐行 SQL 化的附加规则。

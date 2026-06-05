@@ -1,0 +1,21 @@
+id: ADD_GRASS_062
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: ZWDCB_GCYF_TB
+title: 观测植物高度或盖度未正向填写
+explanation: 观测样方植物调查表没有产草量字段，当前校验植物高度和盖度必须有效填写。
+requiredTables:
+  - ZWDCB_GCYF_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - ZW_MC
+  - H
+  - FVC
+locatorFields:
+  - YD_ID
+  - YF_ID
+  - ZW_MC
+sql: |-
+  SELECT YD_ID, YF_ID, ZW_MC, H AS '高度', FVC AS '盖度' FROM "ZWDCB_GCYF_TB" WHERE YD_ID = :ydId AND (H IS NULL OR FVC IS NULL OR CAST(H AS REAL) <= 0 OR CAST(FVC AS REAL) <= 0)

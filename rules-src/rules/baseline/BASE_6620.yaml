@@ -1,0 +1,21 @@
+id: BASE_6620
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_TRCY_PT
+title: 盐碱斑块面积比例应在0-100之间
+explanation: 来源于 ZDB 内置启用规则：盐碱斑块面积比例应在0-100之间。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - XIAN
+  - XIANG
+  - CUN
+locatorFields:
+  - XIAN
+  - XIANG
+  - CUN
+  - YD_ID
+sql: |-
+  SELECT * FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND (YJB_BL <0 OR YJB_BL>100 OR YJB_BL IS NULL OR TRIM(YJB_BL)='')

@@ -1,0 +1,21 @@
+id: BASE_6857
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_RGCD_PT
+title: 市为空
+explanation: 来源于 ZDB 内置启用规则：市为空。
+requiredTables:
+  - YD_RGCD_PT
+requiredFields:
+  - YD_ID
+  - XIAN
+  - XIANG
+  - CUN
+locatorFields:
+  - XIAN
+  - XIANG
+  - CUN
+  - YD_ID
+sql: |-
+  SELECT * FROM "YD_RGCD_PT" WHERE YD_ID = :ydId AND (SHI IS NULL OR SHI ='' OR SHI =' ')

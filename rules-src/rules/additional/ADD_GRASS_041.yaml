@@ -1,0 +1,18 @@
+id: ADD_GRASS_041
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YF_TRCYCC_TB
+title: 测产样方盖度低于 60%
+explanation: 测产样方盖度低于 60% 时提示人工检查核对。
+requiredTables:
+  - YF_TRCYCC_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - ZGD
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT YD_ID, YF_ID, ZGD AS '测产样方盖度' FROM "YF_TRCYCC_TB" WHERE YD_ID = :ydId AND (ZGD IS NOT NULL AND CAST(ZGD AS REAL) < 60)

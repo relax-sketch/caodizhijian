@@ -1,0 +1,18 @@
+id: ADD_GRASS_044
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YF_TRCYCC_TB
+title: 测产样方植物种数少于 3 种
+explanation: 测产样方植物种数少于 3 种时提示检查。
+requiredTables:
+  - YF_TRCYCC_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - ZWZS
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT YD_ID, YF_ID, ZWZS AS '植物种数' FROM "YF_TRCYCC_TB" WHERE YD_ID = :ydId AND (ZWZS IS NOT NULL AND CAST(ZWZS AS REAL) < 3)

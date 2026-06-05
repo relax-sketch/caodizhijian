@@ -1,0 +1,19 @@
+id: ADD_GRASS_038
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YX_TRCY_TB
+title: 样线照片少于 2 张
+explanation: 每条样线照片至少 2 张。
+requiredTables:
+  - YX_TRCY_TB
+  - FS_DOCUMENT
+requiredFields:
+  - YD_ID
+  - YX_ID
+  - MZGUID
+locatorFields:
+  - YD_ID
+  - YX_ID
+sql: |-
+  SELECT l.YD_ID, l.YX_ID, COUNT(d.PK_UID) AS "样线照片数量" FROM "YX_TRCY_TB" l LEFT JOIN "FS_DOCUMENT" d ON d.main_body_table_id = "YX_TRCY_TB" AND (d.main_body_guid LIKE l.MZGUID || "%" OR d.adjunct_path LIKE "%" || l.MZGUID || "%") WHERE l.YD_ID = :ydId GROUP BY l.YD_ID, l.YX_ID HAVING COUNT(d.PK_UID) < 2

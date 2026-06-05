@@ -1,0 +1,21 @@
+id: BASE_6661
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_JM_PT
+title: 草地型为空
+explanation: 来源于 ZDB 内置启用规则：草地型为空。
+requiredTables:
+  - YD_JM_PT
+requiredFields:
+  - YD_ID
+  - XIAN
+  - XIANG
+  - CUN
+locatorFields:
+  - XIAN
+  - XIANG
+  - CUN
+  - YD_ID
+sql: |-
+  SELECT * FROM "YD_JM_PT" WHERE YD_ID = :ydId AND (CD_XING IS NULL OR CD_XING ='' OR CD_XING =' ')

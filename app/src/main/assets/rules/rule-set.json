@@ -20,6 +20,7 @@
     {
       "id": "BASE_6600",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "调查人员为空",
@@ -44,6 +45,7 @@
     {
       "id": "BASE_6601",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "调查日期为空",
@@ -68,6 +70,7 @@
     {
       "id": "BASE_6602",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "调查状态为空",
@@ -92,6 +95,7 @@
     {
       "id": "BASE_6603",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "样地类型为空",
@@ -116,6 +120,7 @@
     {
       "id": "BASE_6604",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "省为空",
@@ -138,6 +143,7 @@
     {
       "id": "BASE_6605",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "市为空",
@@ -162,6 +168,7 @@
     {
       "id": "BASE_6606",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "县为空",
@@ -186,6 +193,7 @@
     {
       "id": "BASE_6608",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "样地号为空",
@@ -210,6 +218,7 @@
     {
       "id": "BASE_6609",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "样地中心点GNSS坐标X为空或整数位小于8位",
@@ -234,6 +243,7 @@
     {
       "id": "BASE_6610",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "样地中心点GNSS坐标Y为空或整数位小于7位",
@@ -258,6 +268,7 @@
     {
       "id": "BASE_6611",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "海拔为空",
@@ -282,6 +293,7 @@
     {
       "id": "BASE_6612",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "草地类为空",
@@ -306,6 +318,7 @@
     {
       "id": "BASE_6613",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "草地型为空",
@@ -330,6 +343,7 @@
     {
       "id": "BASE_6614",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "草地型为其他时，其他草地型为空",
@@ -354,6 +368,7 @@
     {
       "id": "BASE_6615",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "草地起源为空",
@@ -378,6 +393,7 @@
     {
       "id": "BASE_6616",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "植被结构为空",
@@ -402,6 +418,7 @@
     {
       "id": "BASE_6617",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "优势草种为空",
@@ -426,6 +443,7 @@
     {
       "id": "BASE_6618",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "砾石覆盖面积比例值应在0-100之间",
@@ -450,6 +468,7 @@
     {
       "id": "BASE_6619",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "覆沙厚度为空",
@@ -474,6 +493,7 @@
     {
       "id": "BASE_6620",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "盐碱斑块面积比例应在0-100之间",
@@ -498,6 +518,7 @@
     {
       "id": "BASE_6621",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "地表侵蚀类型为空",
@@ -522,6 +543,7 @@
     {
       "id": "BASE_6622",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "地表侵蚀类型不为无侵蚀时，地表侵蚀程度为空",
@@ -546,6 +568,7 @@
     {
       "id": "BASE_6623",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "功能类别为空",
@@ -570,6 +593,7 @@
     {
       "id": "BASE_6624",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "利用方式为空",
@@ -594,6 +618,7 @@
     {
       "id": "BASE_6625",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "主要生态功能为空",
@@ -618,6 +643,7 @@
     {
       "id": "BASE_6626",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "利用强度为空",
@@ -642,6 +668,7 @@
     {
       "id": "BASE_6627",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "划区轮牧为空",
@@ -666,6 +693,7 @@
     {
       "id": "BASE_6628",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "基本草原为空",
@@ -690,6 +718,7 @@
     {
       "id": "BASE_6629",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "地貌为空",
@@ -714,6 +743,7 @@
     {
       "id": "BASE_6630",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "坡度应在0-90之间",
@@ -738,6 +768,7 @@
     {
       "id": "BASE_6631",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "坡位为空",
@@ -762,6 +793,7 @@
     {
       "id": "BASE_6632",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "当坡位不为无坡时，坡向为空",
@@ -786,6 +818,7 @@
     {
       "id": "BASE_6633",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "土壤质地为空",
@@ -810,6 +843,7 @@
     {
       "id": "BASE_6634",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "土层厚度为空",
@@ -834,6 +868,7 @@
     {
       "id": "BASE_6635",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "中心桩照片未拍摄",
@@ -858,6 +893,7 @@
     {
       "id": "BASE_6636",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "远景照未拍摄",
@@ -882,6 +918,7 @@
     {
       "id": "BASE_6637",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "近景照未拍摄",
@@ -906,6 +943,7 @@
     {
       "id": "BASE_6638",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "土壤照片未拍摄",
@@ -930,6 +968,7 @@
     {
       "id": "BASE_6639",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "缺少观测样方表",
@@ -955,6 +994,7 @@
     {
       "id": "BASE_6640",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "缺少测产样方表",
@@ -980,6 +1020,7 @@
     {
       "id": "BASE_6641",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "缺少样线表",
@@ -1005,6 +1046,7 @@
     {
       "id": "BASE_6642",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "样线不足3条",
@@ -1030,6 +1072,7 @@
     {
       "id": "BASE_6643",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "观测样方不足3个",
@@ -1055,6 +1098,7 @@
     {
       "id": "BASE_6644",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "测产样方不足3个",
@@ -1080,6 +1124,7 @@
     {
       "id": "BASE_6645",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "样线长度不一致",
@@ -1105,6 +1150,7 @@
     {
       "id": "BASE_6648",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "调查人员为空",
@@ -1129,6 +1175,7 @@
     {
       "id": "BASE_6649",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "调查日期为空",
@@ -1153,6 +1200,7 @@
     {
       "id": "BASE_6650",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "调查状态为空",
@@ -1177,6 +1225,7 @@
     {
       "id": "BASE_6651",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "样地类型为空",
@@ -1201,6 +1250,7 @@
     {
       "id": "BASE_6652",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "省为空",
@@ -1223,6 +1273,7 @@
     {
       "id": "BASE_6653",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "市为空",
@@ -1247,6 +1298,7 @@
     {
       "id": "BASE_6654",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "县为空",
@@ -1271,6 +1323,7 @@
     {
       "id": "BASE_6656",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "样地号为空",
@@ -1295,6 +1348,7 @@
     {
       "id": "BASE_6657",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "样地中心点GNSS坐标X为空或整数位小于8位",
@@ -1319,6 +1373,7 @@
     {
       "id": "BASE_6658",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "样地中心点GNSS坐标Y为空或整数位小于7位",
@@ -1343,6 +1398,7 @@
     {
       "id": "BASE_6659",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "海拔为空",
@@ -1367,6 +1423,7 @@
     {
       "id": "BASE_6660",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "草地类为空",
@@ -1391,6 +1448,7 @@
     {
       "id": "BASE_6661",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "草地型为空",
@@ -1415,6 +1473,7 @@
     {
       "id": "BASE_6662",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "草地型为其他时，其他草地型为空",
@@ -1439,6 +1498,7 @@
     {
       "id": "BASE_6663",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "草地起源为空",
@@ -1463,6 +1523,7 @@
     {
       "id": "BASE_6664",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "植被结构为空",
@@ -1487,6 +1548,7 @@
     {
       "id": "BASE_6665",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "优势草种为空",
@@ -1511,6 +1573,7 @@
     {
       "id": "BASE_6666",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "砾石覆盖面积比例值应在0-100之间",
@@ -1535,6 +1598,7 @@
     {
       "id": "BASE_6667",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "覆沙厚度为空",
@@ -1559,6 +1623,7 @@
     {
       "id": "BASE_6668",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "盐碱斑块面积比例应在0-100之间",
@@ -1583,6 +1648,7 @@
     {
       "id": "BASE_6669",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "地表侵蚀类型为空",
@@ -1607,6 +1673,7 @@
     {
       "id": "BASE_6670",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "地表侵蚀类型不为无侵蚀时，地表侵蚀程度为空",
@@ -1631,6 +1698,7 @@
     {
       "id": "BASE_6671",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "功能类别为空",
@@ -1655,6 +1723,7 @@
     {
       "id": "BASE_6672",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "利用方式为空",
@@ -1679,6 +1748,7 @@
     {
       "id": "BASE_6673",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "主要生态功能为空",
@@ -1703,6 +1773,7 @@
     {
       "id": "BASE_6674",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "利用强度为空",
@@ -1727,6 +1798,7 @@
     {
       "id": "BASE_6675",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "划区轮牧为空",
@@ -1751,6 +1823,7 @@
     {
       "id": "BASE_6676",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "基本草原为空",
@@ -1775,6 +1848,7 @@
     {
       "id": "BASE_6677",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "地貌为空",
@@ -1799,6 +1873,7 @@
     {
       "id": "BASE_6678",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "坡度应在0-90之间",
@@ -1823,6 +1898,7 @@
     {
       "id": "BASE_6679",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "坡位为空",
@@ -1847,6 +1923,7 @@
     {
       "id": "BASE_6680",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "当坡位不为无坡时，坡向为空",
@@ -1871,6 +1948,7 @@
     {
       "id": "BASE_6681",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "土壤质地为空",
@@ -1895,6 +1973,7 @@
     {
       "id": "BASE_6682",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "土层厚度为空",
@@ -1919,6 +1998,7 @@
     {
       "id": "BASE_6683",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "远景照未拍摄",
@@ -1943,6 +2023,7 @@
     {
       "id": "BASE_6684",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "近景照未拍摄",
@@ -1967,6 +2048,7 @@
     {
       "id": "BASE_6685",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "缺少加密样地测产样方",
@@ -1992,6 +2074,7 @@
     {
       "id": "BASE_6686",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "加密测产样方不足3个",
@@ -2017,6 +2100,7 @@
     {
       "id": "BASE_6689",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样地号为空",
@@ -2037,6 +2121,7 @@
     {
       "id": "BASE_6690",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样线编号为空",
@@ -2057,6 +2142,7 @@
     {
       "id": "BASE_6691",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样线长度为空",
@@ -2077,6 +2163,7 @@
     {
       "id": "BASE_6692",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "是否改平为空",
@@ -2097,6 +2184,7 @@
     {
       "id": "BASE_6693",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样线终点GNSS坐标X为空",
@@ -2117,6 +2205,7 @@
     {
       "id": "BASE_6694",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样线终点GNSS坐标Y为空",
@@ -2137,6 +2226,7 @@
     {
       "id": "BASE_6695",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "1号记录植被覆盖为空",
@@ -2157,6 +2247,7 @@
     {
       "id": "BASE_6696",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "2号记录植被覆盖为空",
@@ -2177,6 +2268,7 @@
     {
       "id": "BASE_6697",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "3号记录植被覆盖为空",
@@ -2197,6 +2289,7 @@
     {
       "id": "BASE_6698",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "4号记录植被覆盖为空",
@@ -2217,6 +2310,7 @@
     {
       "id": "BASE_6699",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "5号记录植被覆盖为空",
@@ -2237,6 +2331,7 @@
     {
       "id": "BASE_6700",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "6号记录植被覆盖为空",
@@ -2257,6 +2352,7 @@
     {
       "id": "BASE_6701",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "7号记录植被覆盖为空",
@@ -2277,6 +2373,7 @@
     {
       "id": "BASE_6702",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "8号记录植被覆盖为空",
@@ -2297,6 +2394,7 @@
     {
       "id": "BASE_6703",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "9号记录植被覆盖为空",
@@ -2317,6 +2415,7 @@
     {
       "id": "BASE_6704",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "10号记录植被覆盖为空",
@@ -2337,6 +2436,7 @@
     {
       "id": "BASE_6705",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "11号记录植被覆盖为空",
@@ -2357,6 +2457,7 @@
     {
       "id": "BASE_6706",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "12号记录植被覆盖为空",
@@ -2377,6 +2478,7 @@
     {
       "id": "BASE_6707",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "13号记录植被覆盖为空",
@@ -2397,6 +2499,7 @@
     {
       "id": "BASE_6708",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "14号记录植被覆盖为空",
@@ -2417,6 +2520,7 @@
     {
       "id": "BASE_6709",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "15号记录植被覆盖为空",
@@ -2437,6 +2541,7 @@
     {
       "id": "BASE_6710",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "16号记录植被覆盖为空",
@@ -2457,6 +2562,7 @@
     {
       "id": "BASE_6711",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "17号记录植被覆盖为空",
@@ -2477,6 +2583,7 @@
     {
       "id": "BASE_6712",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "18号记录植被覆盖为空",
@@ -2497,6 +2604,7 @@
     {
       "id": "BASE_6713",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "19号记录植被覆盖为空",
@@ -2517,6 +2625,7 @@
     {
       "id": "BASE_6714",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "20号记录植被覆盖为空",
@@ -2537,6 +2646,7 @@
     {
       "id": "BASE_6715",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "21号记录植被覆盖为空",
@@ -2557,6 +2667,7 @@
     {
       "id": "BASE_6716",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "22号记录植被覆盖为空",
@@ -2577,6 +2688,7 @@
     {
       "id": "BASE_6717",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "23号记录植被覆盖为空",
@@ -2597,6 +2709,7 @@
     {
       "id": "BASE_6718",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "24号记录植被覆盖为空",
@@ -2617,6 +2730,7 @@
     {
       "id": "BASE_6719",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "25号记录植被覆盖为空",
@@ -2637,6 +2751,7 @@
     {
       "id": "BASE_6720",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "26号记录植被覆盖为空",
@@ -2657,6 +2772,7 @@
     {
       "id": "BASE_6721",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "27号记录植被覆盖为空",
@@ -2677,6 +2793,7 @@
     {
       "id": "BASE_6722",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "28号记录植被覆盖为空",
@@ -2697,6 +2814,7 @@
     {
       "id": "BASE_6723",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "29号记录植被覆盖为空",
@@ -2717,6 +2835,7 @@
     {
       "id": "BASE_6724",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "30号记录植被覆盖为空",
@@ -2737,6 +2856,7 @@
     {
       "id": "BASE_6725",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "31号记录植被覆盖为空",
@@ -2757,6 +2877,7 @@
     {
       "id": "BASE_6726",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "32号记录植被覆盖为空",
@@ -2777,6 +2898,7 @@
     {
       "id": "BASE_6727",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "33号记录植被覆盖为空",
@@ -2797,6 +2919,7 @@
     {
       "id": "BASE_6728",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "34号记录植被覆盖为空",
@@ -2817,6 +2940,7 @@
     {
       "id": "BASE_6729",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "35号记录植被覆盖为空",
@@ -2837,6 +2961,7 @@
     {
       "id": "BASE_6730",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "36号记录植被覆盖为空",
@@ -2857,6 +2982,7 @@
     {
       "id": "BASE_6731",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "37号记录植被覆盖为空",
@@ -2877,6 +3003,7 @@
     {
       "id": "BASE_6732",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "38号记录植被覆盖为空",
@@ -2897,6 +3024,7 @@
     {
       "id": "BASE_6733",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "39号记录植被覆盖为空",
@@ -2917,6 +3045,7 @@
     {
       "id": "BASE_6734",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "40号记录植被覆盖为空",
@@ -2937,6 +3066,7 @@
     {
       "id": "BASE_6735",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "1号记录连续裸斑为空",
@@ -2957,6 +3087,7 @@
     {
       "id": "BASE_6736",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "2号记录连续裸斑为空",
@@ -2977,6 +3108,7 @@
     {
       "id": "BASE_6737",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "3号记录连续裸斑为空",
@@ -2997,6 +3129,7 @@
     {
       "id": "BASE_6738",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "4号记录连续裸斑为空",
@@ -3017,6 +3150,7 @@
     {
       "id": "BASE_6739",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "5号记录连续裸斑为空",
@@ -3037,6 +3171,7 @@
     {
       "id": "BASE_6740",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "6号记录连续裸斑为空",
@@ -3057,6 +3192,7 @@
     {
       "id": "BASE_6741",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "7号记录连续裸斑为空",
@@ -3077,6 +3213,7 @@
     {
       "id": "BASE_6742",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "8号记录连续裸斑为空",
@@ -3097,6 +3234,7 @@
     {
       "id": "BASE_6743",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "9号记录连续裸斑为空",
@@ -3117,6 +3255,7 @@
     {
       "id": "BASE_6744",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "10号记录连续裸斑为空",
@@ -3137,6 +3276,7 @@
     {
       "id": "BASE_6745",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "11号记录连续裸斑为空",
@@ -3157,6 +3297,7 @@
     {
       "id": "BASE_6746",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "12号记录连续裸斑为空",
@@ -3177,6 +3318,7 @@
     {
       "id": "BASE_6747",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "13号记录连续裸斑为空",
@@ -3197,6 +3339,7 @@
     {
       "id": "BASE_6748",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "14号记录连续裸斑为空",
@@ -3217,6 +3360,7 @@
     {
       "id": "BASE_6749",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "15号记录连续裸斑为空",
@@ -3237,6 +3381,7 @@
     {
       "id": "BASE_6750",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "16号记录连续裸斑为空",
@@ -3257,6 +3402,7 @@
     {
       "id": "BASE_6751",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "17号记录连续裸斑为空",
@@ -3277,6 +3423,7 @@
     {
       "id": "BASE_6752",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "18号记录连续裸斑为空",
@@ -3297,6 +3444,7 @@
     {
       "id": "BASE_6753",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "19号记录连续裸斑为空",
@@ -3317,6 +3465,7 @@
     {
       "id": "BASE_6754",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "20号记录连续裸斑为空",
@@ -3337,6 +3486,7 @@
     {
       "id": "BASE_6755",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "21号记录连续裸斑为空",
@@ -3357,6 +3507,7 @@
     {
       "id": "BASE_6756",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "22号记录连续裸斑为空",
@@ -3377,6 +3528,7 @@
     {
       "id": "BASE_6757",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "23号记录连续裸斑为空",
@@ -3397,6 +3549,7 @@
     {
       "id": "BASE_6758",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "24号记录连续裸斑为空",
@@ -3417,6 +3570,7 @@
     {
       "id": "BASE_6759",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "25号记录连续裸斑为空",
@@ -3437,6 +3591,7 @@
     {
       "id": "BASE_6760",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "26号记录连续裸斑为空",
@@ -3457,6 +3612,7 @@
     {
       "id": "BASE_6761",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "27号记录连续裸斑为空",
@@ -3477,6 +3633,7 @@
     {
       "id": "BASE_6762",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "28号记录连续裸斑为空",
@@ -3497,6 +3654,7 @@
     {
       "id": "BASE_6763",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "29号记录连续裸斑为空",
@@ -3517,6 +3675,7 @@
     {
       "id": "BASE_6764",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "30号记录连续裸斑为空",
@@ -3537,6 +3696,7 @@
     {
       "id": "BASE_6765",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "31号记录连续裸斑为空",
@@ -3557,6 +3717,7 @@
     {
       "id": "BASE_6766",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "32号记录连续裸斑为空",
@@ -3577,6 +3738,7 @@
     {
       "id": "BASE_6767",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "33号记录连续裸斑为空",
@@ -3597,6 +3759,7 @@
     {
       "id": "BASE_6768",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "34号记录连续裸斑为空",
@@ -3617,6 +3780,7 @@
     {
       "id": "BASE_6769",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "35号记录连续裸斑为空",
@@ -3637,6 +3801,7 @@
     {
       "id": "BASE_6770",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "36号记录连续裸斑为空",
@@ -3657,6 +3822,7 @@
     {
       "id": "BASE_6771",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "37号记录连续裸斑为空",
@@ -3677,6 +3843,7 @@
     {
       "id": "BASE_6772",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "38号记录连续裸斑为空",
@@ -3697,6 +3864,7 @@
     {
       "id": "BASE_6773",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "39号记录连续裸斑为空",
@@ -3717,6 +3885,7 @@
     {
       "id": "BASE_6774",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "40号记录连续裸斑为空",
@@ -3737,6 +3906,7 @@
     {
       "id": "BASE_6776",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "样地编号为空",
@@ -3757,6 +3927,7 @@
     {
       "id": "BASE_6777",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "样方号为空",
@@ -3777,6 +3948,7 @@
     {
       "id": "BASE_6778",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "面积为空",
@@ -3797,6 +3969,7 @@
     {
       "id": "BASE_6779",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "总盖度为空",
@@ -3817,6 +3990,7 @@
     {
       "id": "BASE_6780",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "草群平均高度为空",
@@ -3837,6 +4011,7 @@
     {
       "id": "BASE_6781",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "植物种数为空",
@@ -3857,6 +4032,7 @@
     {
       "id": "BASE_6782",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "当总盖度不为0时，\r\n必须填写观测样方植物调查表",
@@ -3878,6 +4054,7 @@
     {
       "id": "BASE_6784",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GCYF_TB",
       "title": "样地编号为空",
@@ -3900,6 +4077,7 @@
     {
       "id": "BASE_6785",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GCYF_TB",
       "title": "样方号为空",
@@ -3922,6 +4100,7 @@
     {
       "id": "BASE_6786",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GCYF_TB",
       "title": "植物名称为空",
@@ -3944,6 +4123,7 @@
     {
       "id": "BASE_6787",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GCYF_TB",
       "title": "高度为空",
@@ -3966,6 +4146,7 @@
     {
       "id": "BASE_6788",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GCYF_TB",
       "title": "盖度取值【0,100】",
@@ -3988,6 +4169,7 @@
     {
       "id": "BASE_6789",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GCYF_TB",
       "title": "是否可食为空",
@@ -4010,6 +4192,7 @@
     {
       "id": "BASE_6790",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GCYF_TB",
       "title": "是否为优势种为空",
@@ -4032,6 +4215,7 @@
     {
       "id": "BASE_6792",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "样地编号为空",
@@ -4052,6 +4236,7 @@
     {
       "id": "BASE_6793",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "样方号为空",
@@ -4072,6 +4257,7 @@
     {
       "id": "BASE_6794",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "总盖度取值【0,100】",
@@ -4092,6 +4278,7 @@
     {
       "id": "BASE_6795",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "草群平均高度为空",
@@ -4112,6 +4299,7 @@
     {
       "id": "BASE_6796",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "植物种数为空",
@@ -4132,6 +4320,7 @@
     {
       "id": "BASE_6797",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "枯落物总量为空",
@@ -4152,6 +4341,7 @@
     {
       "id": "BASE_6798",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "当总盖度不为0时，必须填写测产样方植物调查表",
@@ -4173,6 +4363,7 @@
     {
       "id": "BASE_6800",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_JMCC_TB",
       "title": "样地编号为空",
@@ -4193,6 +4384,7 @@
     {
       "id": "BASE_6801",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_JMCC_TB",
       "title": "样方号为空",
@@ -4213,6 +4405,7 @@
     {
       "id": "BASE_6802",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_JMCC_TB",
       "title": "总盖度取值【0,100】",
@@ -4233,6 +4426,7 @@
     {
       "id": "BASE_6803",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_JMCC_TB",
       "title": "草群平均高度为空",
@@ -4253,6 +4447,7 @@
     {
       "id": "BASE_6804",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_JMCC_TB",
       "title": "植物种数为空",
@@ -4273,6 +4468,7 @@
     {
       "id": "BASE_6805",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_JMCC_TB",
       "title": "枯落物总量为空",
@@ -4293,6 +4489,7 @@
     {
       "id": "BASE_6806",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_JMCC_TB",
       "title": "当总盖度不为0时，必须填写加密样地测产样方植物调查表",
@@ -4314,6 +4511,7 @@
     {
       "id": "BASE_6808",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "样地编号为空",
@@ -4336,6 +4534,7 @@
     {
       "id": "BASE_6809",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "样方号为空",
@@ -4358,6 +4557,7 @@
     {
       "id": "BASE_6810",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "植物名称为空",
@@ -4380,6 +4580,7 @@
     {
       "id": "BASE_6811",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "高度为空",
@@ -4402,6 +4603,7 @@
     {
       "id": "BASE_6812",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "盖度取值【0,100】",
@@ -4424,6 +4626,7 @@
     {
       "id": "BASE_6813",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "产草量鲜重为空",
@@ -4446,6 +4649,7 @@
     {
       "id": "BASE_6814",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "是否可食为空",
@@ -4468,6 +4672,7 @@
     {
       "id": "BASE_6815",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "是否毒害为空",
@@ -4490,6 +4695,7 @@
     {
       "id": "BASE_6816",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "是否为优势种为空",
@@ -4512,6 +4718,7 @@
     {
       "id": "BASE_6818",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMCCYF_TB",
       "title": "样地编号为空",
@@ -4534,6 +4741,7 @@
     {
       "id": "BASE_6819",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMCCYF_TB",
       "title": "样方号为空",
@@ -4556,6 +4764,7 @@
     {
       "id": "BASE_6820",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMCCYF_TB",
       "title": "植物名称为空",
@@ -4578,6 +4787,7 @@
     {
       "id": "BASE_6821",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMCCYF_TB",
       "title": "高度为空",
@@ -4600,6 +4810,7 @@
     {
       "id": "BASE_6822",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMCCYF_TB",
       "title": "盖度取值【0,100】",
@@ -4622,6 +4833,7 @@
     {
       "id": "BASE_6823",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMCCYF_TB",
       "title": "产草量鲜重为空",
@@ -4644,6 +4856,7 @@
     {
       "id": "BASE_6824",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMCCYF_TB",
       "title": "是否可食为空",
@@ -4666,6 +4879,7 @@
     {
       "id": "BASE_6825",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMCCYF_TB",
       "title": "是否毒害为空",
@@ -4688,6 +4902,7 @@
     {
       "id": "BASE_6826",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMCCYF_TB",
       "title": "是否为优势种为空",
@@ -4710,6 +4925,7 @@
     {
       "id": "BASE_6828",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCY_TB",
       "title": "样地编号为空",
@@ -4730,6 +4946,7 @@
     {
       "id": "BASE_6829",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCY_TB",
       "title": "样方号为空",
@@ -4750,6 +4967,7 @@
     {
       "id": "BASE_6830",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCY_TB",
       "title": "面积为空",
@@ -4770,6 +4988,7 @@
     {
       "id": "BASE_6831",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCY_TB",
       "title": "缺少高大草灌植物调查表",
@@ -4791,6 +5010,7 @@
     {
       "id": "BASE_6833",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_JMGDCG_TB",
       "title": "样地编号为空",
@@ -4811,6 +5031,7 @@
     {
       "id": "BASE_6834",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_JMGDCG_TB",
       "title": "样方号为空",
@@ -4831,6 +5052,7 @@
     {
       "id": "BASE_6835",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_JMGDCG_TB",
       "title": "面积为空",
@@ -4851,6 +5073,7 @@
     {
       "id": "BASE_6836",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_JMGDCG_TB",
       "title": "缺少加密样地高大草灌植物调查表",
@@ -4872,6 +5095,7 @@
     {
       "id": "BASE_6838",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GDCG_TB",
       "title": "样地编号为空",
@@ -4894,6 +5118,7 @@
     {
       "id": "BASE_6839",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GDCG_TB",
       "title": "样方号为空",
@@ -4916,6 +5141,7 @@
     {
       "id": "BASE_6840",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GDCG_TB",
       "title": "名称为空",
@@ -4938,6 +5164,7 @@
     {
       "id": "BASE_6841",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GDCG_TB",
       "title": "株丛数为空",
@@ -4960,6 +5187,7 @@
     {
       "id": "BASE_6842",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GDCG_TB",
       "title": "丛径为空",
@@ -4982,6 +5210,7 @@
     {
       "id": "BASE_6843",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GDCG_TB",
       "title": "株丛高度为空",
@@ -5004,6 +5233,7 @@
     {
       "id": "BASE_6844",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GDCG_TB",
       "title": "株丛鲜重为空",
@@ -5026,6 +5256,7 @@
     {
       "id": "BASE_6845",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GDCG_TB",
       "title": "株丛类型为空",
@@ -5048,6 +5279,7 @@
     {
       "id": "BASE_6847",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMGDCG_TB",
       "title": "样地编号为空",
@@ -5070,6 +5302,7 @@
     {
       "id": "BASE_6848",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMGDCG_TB",
       "title": "样方号为空",
@@ -5092,6 +5325,7 @@
     {
       "id": "BASE_6849",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMGDCG_TB",
       "title": "名称为空",
@@ -5114,6 +5348,7 @@
     {
       "id": "BASE_6850",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMGDCG_TB",
       "title": "株丛数为空",
@@ -5136,6 +5371,7 @@
     {
       "id": "BASE_6851",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMGDCG_TB",
       "title": "丛径为空",
@@ -5158,6 +5394,7 @@
     {
       "id": "BASE_6852",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMGDCG_TB",
       "title": "株丛高度为空",
@@ -5180,6 +5417,7 @@
     {
       "id": "BASE_6853",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMGDCG_TB",
       "title": "株丛鲜重为空",
@@ -5202,6 +5440,7 @@
     {
       "id": "BASE_6854",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_JMGDCG_TB",
       "title": "株丛类型为空",
@@ -5224,6 +5463,7 @@
     {
       "id": "BASE_6856",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "省为空",
@@ -5248,6 +5488,7 @@
     {
       "id": "BASE_6857",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "市为空",
@@ -5272,6 +5513,7 @@
     {
       "id": "BASE_6858",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "县为空",
@@ -5296,6 +5538,7 @@
     {
       "id": "BASE_6859",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "乡为空",
@@ -5320,6 +5563,7 @@
     {
       "id": "BASE_6861",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "样地号为空",
@@ -5344,6 +5588,7 @@
     {
       "id": "BASE_6862",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "海拔为空或小于-100",
@@ -5368,6 +5613,7 @@
     {
       "id": "BASE_6863",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "草种名称为空",
@@ -5392,6 +5638,7 @@
     {
       "id": "BASE_6864",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "生命周期为空",
@@ -5416,6 +5663,7 @@
     {
       "id": "BASE_6865",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "草种来源为空",
@@ -5440,6 +5688,7 @@
     {
       "id": "BASE_6866",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "灌溉条件为空",
@@ -5464,6 +5713,7 @@
     {
       "id": "BASE_6867",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "全年鲜草产量为空",
@@ -5488,6 +5738,7 @@
     {
       "id": "BASE_6868",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "全年干草产量为空",
@@ -5512,6 +5763,7 @@
     {
       "id": "BASE_6869",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "种植年份为空",
@@ -5536,6 +5788,7 @@
     {
       "id": "BASE_6870",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "调查人员为空",
@@ -5560,6 +5813,7 @@
     {
       "id": "BASE_6871",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "调查日期为空",
@@ -5584,6 +5838,7 @@
     {
       "id": "BASE_6872",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "调查状态为空",
@@ -5608,6 +5863,7 @@
     {
       "id": "BASE_6873",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "样地类型为空",
@@ -5632,6 +5888,7 @@
     {
       "id": "BASE_6874",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_RGCD_PT",
       "title": "样地面积为空",
@@ -5656,6 +5913,7 @@
     {
       "id": "BASE_6876",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "植被覆盖类型为空",
@@ -5680,6 +5938,7 @@
     {
       "id": "BASE_6877",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "地类为空",
@@ -5704,6 +5963,7 @@
     {
       "id": "BASE_6878",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "植被覆盖类型为空",
@@ -5728,6 +5988,7 @@
     {
       "id": "BASE_6879",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "地类为空",
@@ -5752,6 +6013,7 @@
     {
       "id": "BASE_6880",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "裸斑面积比例为空",
@@ -5776,6 +6038,7 @@
     {
       "id": "BASE_6906",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "荒漠调查区类型为石漠化调查区时，基岩裸露度为空或不在1%-100%之间",
@@ -5800,6 +6063,7 @@
     {
       "id": "BASE_6907",
       "sourceId": "zdb-baseline-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_JM_PT",
       "title": "荒漠调查区类型为石漠化调查区时，基岩裸露度为空或不在1%-100%之间",
@@ -5824,6 +6088,7 @@
     {
       "id": "ADD_GRASS_001",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "已调查样地关键字段未填写完整",
@@ -5855,6 +6120,7 @@
     {
       "id": "ADD_GRASS_002",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "天然草原样地面积不是 0.125",
@@ -5874,6 +6140,7 @@
     {
       "id": "ADD_GRASS_003",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "中心桩 GNSS 坐标 X 位数异常",
@@ -5893,6 +6160,7 @@
     {
       "id": "ADD_GRASS_004",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "中心桩 GNSS 坐标 Y 位数异常",
@@ -5912,6 +6180,7 @@
     {
       "id": "ADD_GRASS_005",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YD_TRCY_PT",
       "title": "草地类不在湖北允许范围",
@@ -5931,6 +6200,7 @@
     {
       "id": "ADD_GRASS_006",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YD_TRCY_PT",
       "title": "草地型与草地类关系需核对",
@@ -5952,6 +6222,7 @@
     {
       "id": "ADD_GRASS_007",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "草地起源不是天然草原",
@@ -5971,6 +6242,7 @@
     {
       "id": "ADD_GRASS_008",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "植被结构未填写或与覆盖类型不对应",
@@ -5991,6 +6263,7 @@
     {
       "id": "ADD_GRASS_009",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "植被覆盖类型未填写或与植被结构不对应",
@@ -6011,6 +6284,7 @@
     {
       "id": "ADD_GRASS_010",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "草地型与草地类不对应",
@@ -6032,6 +6306,7 @@
     {
       "id": "ADD_GRASS_011",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YD_TRCY_PT",
       "title": "植被盖度低于 60%",
@@ -6051,6 +6326,7 @@
     {
       "id": "ADD_GRASS_012",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YD_TRCY_PT",
       "title": "草群平均高度超出 5 至 100",
@@ -6070,6 +6346,7 @@
     {
       "id": "ADD_GRASS_013",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YD_TRCY_PT",
       "title": "单位面积鲜草产量超过 8000",
@@ -6089,6 +6366,7 @@
     {
       "id": "ADD_GRASS_014",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YD_TRCY_PT",
       "title": "单位面积干草产量超过 4000",
@@ -6108,6 +6386,7 @@
     {
       "id": "ADD_GRASS_015",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YD_TRCY_PT",
       "title": "GNSS 坐标与经纬度坐标需核对",
@@ -6130,6 +6409,7 @@
     {
       "id": "ADD_GRASS_016",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YD_TRCY_PT",
       "title": "鲜草产量与干草产量比值超出 1 至 4",
@@ -6150,6 +6430,7 @@
     {
       "id": "ADD_GRASS_017",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YD_TRCY_PT",
       "title": "其他草地型命名需核对",
@@ -6171,6 +6452,7 @@
     {
       "id": "ADD_GRASS_018",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YD_TRCY_PT",
       "title": "裸斑面积比例超过 40%",
@@ -6190,6 +6472,7 @@
     {
       "id": "ADD_GRASS_019",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YD_TRCY_PT",
       "title": "砾石覆盖面积比例超过 20%",
@@ -6209,6 +6492,7 @@
     {
       "id": "ADD_GRASS_020",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YD_TRCY_PT",
       "title": "盐碱斑块面积比例超过 20%",
@@ -6228,6 +6512,7 @@
     {
       "id": "ADD_GRASS_021",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YD_TRCY_PT",
       "title": "覆沙厚度超过 10 厘米",
@@ -6247,6 +6532,7 @@
     {
       "id": "ADD_GRASS_022",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YD_TRCY_PT",
       "title": "单位面积鲜草产量大于 20000",
@@ -6266,6 +6552,7 @@
     {
       "id": "ADD_GRASS_023",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "坡度与坡向坡位关系异常",
@@ -6287,6 +6574,7 @@
     {
       "id": "ADD_GRASS_024",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "地表侵蚀类型与程度关系异常",
@@ -6307,6 +6595,7 @@
     {
       "id": "ADD_GRASS_025",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "利用方式与利用强度关系异常",
@@ -6327,6 +6616,7 @@
     {
       "id": "ADD_GRASS_026",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "划区轮牧不是否",
@@ -6346,6 +6636,7 @@
     {
       "id": "ADD_GRASS_027",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "基本草原不是未划定",
@@ -6365,6 +6656,7 @@
     {
       "id": "ADD_GRASS_028",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YD_TRCY_PT",
       "title": "样地照片未满足四类要求",
@@ -6387,6 +6679,7 @@
     {
       "id": "ADD_GRASS_029",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样线长度不是 20 米",
@@ -6408,6 +6701,7 @@
     {
       "id": "ADD_GRASS_030",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样线终点 GNSS 坐标 X 位数异常",
@@ -6429,6 +6723,7 @@
     {
       "id": "ADD_GRASS_031",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样线终点 GNSS 坐标 Y 位数异常",
@@ -6450,6 +6745,7 @@
     {
       "id": "ADD_GRASS_032",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样线盖度低于 60",
@@ -6471,6 +6767,7 @@
     {
       "id": "ADD_GRASS_033",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样线盖度与样地盖度差值超过 20%",
@@ -6493,6 +6790,7 @@
     {
       "id": "ADD_GRASS_034",
       "sourceId": "grassland-additional-20260526",
+      "enabled": false,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样线盖度与裸斑面积比例之和不是 100%",
@@ -6515,6 +6813,7 @@
     {
       "id": "ADD_GRASS_035",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样线方位角为空或夹角异常",
@@ -6536,6 +6835,7 @@
     {
       "id": "ADD_GRASS_036",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "1-20 号记录植被覆盖存在空值",
@@ -6576,6 +6876,7 @@
     {
       "id": "ADD_GRASS_037",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "1-20 号记录连续裸斑存在空值",
@@ -6616,6 +6917,7 @@
     {
       "id": "ADD_GRASS_038",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样线照片少于 2 张",
@@ -6638,6 +6940,7 @@
     {
       "id": "ADD_GRASS_039",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YX_TRCY_TB",
       "title": "样线终点与样地中心 GNSS 距离异常",
@@ -6661,6 +6964,7 @@
     {
       "id": "ADD_GRASS_040",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "测产样方不足 3 个",
@@ -6679,6 +6983,7 @@
     {
       "id": "ADD_GRASS_041",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "测产样方盖度低于 60%",
@@ -6700,6 +7005,7 @@
     {
       "id": "ADD_GRASS_042",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "测产样方盖度与样地盖度差值超过 20%",
@@ -6722,6 +7028,7 @@
     {
       "id": "ADD_GRASS_043",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "测产样方草群平均高度超出 5 至 100",
@@ -6743,6 +7050,7 @@
     {
       "id": "ADD_GRASS_044",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "测产样方植物种数少于 3 种",
@@ -6764,6 +7072,7 @@
     {
       "id": "ADD_GRASS_045",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "测产样方植物调查表少于 2 条",
@@ -6786,6 +7095,7 @@
     {
       "id": "ADD_GRASS_046",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "测产样方草群平均高未偏向高覆盖度植物",
@@ -6809,6 +7119,7 @@
     {
       "id": "ADD_GRASS_047",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "测产样方总盖度大于植物盖度合计",
@@ -6832,6 +7143,7 @@
     {
       "id": "ADD_GRASS_048",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "测产植物产草量鲜重不大于干重",
@@ -6856,6 +7168,7 @@
     {
       "id": "ADD_GRASS_049",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "测产植物是否可食与是否毒害关系异常",
@@ -6880,6 +7193,7 @@
     {
       "id": "ADD_GRASS_050",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "测产植物分类重复",
@@ -6904,6 +7218,7 @@
     {
       "id": "ADD_GRASS_051",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "测产植物照片数量不足",
@@ -6928,6 +7243,7 @@
     {
       "id": "ADD_GRASS_052",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "测产优势植物鲜重占比低于 60%",
@@ -6951,6 +7267,7 @@
     {
       "id": "ADD_GRASS_053",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "ZWDCB_CCYF_TB",
       "title": "测产优势植物名称与样地优势草种不一致",
@@ -6974,6 +7291,7 @@
     {
       "id": "ADD_GRASS_054",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "观测样方不足 3 个",
@@ -6992,6 +7310,7 @@
     {
       "id": "ADD_GRASS_055",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "观测样方盖度低于 60%",
@@ -7013,6 +7332,7 @@
     {
       "id": "ADD_GRASS_056",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "观测样方盖度与样地盖度差值超过 20%",
@@ -7035,6 +7355,7 @@
     {
       "id": "ADD_GRASS_057",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "观测样方草群平均高度超出 5 至 100",
@@ -7056,6 +7377,7 @@
     {
       "id": "ADD_GRASS_058",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "观测样方植物种数少于 3 种",
@@ -7077,6 +7399,7 @@
     {
       "id": "ADD_GRASS_059",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "观测样方植物调查表少于 2 条",
@@ -7099,6 +7422,7 @@
     {
       "id": "ADD_GRASS_060",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "观测样方草群平均高未偏向高覆盖度植物",
@@ -7122,6 +7446,7 @@
     {
       "id": "ADD_GRASS_061",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "观测样方总盖度大于植物盖度合计",
@@ -7145,6 +7470,7 @@
     {
       "id": "ADD_GRASS_062",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GCYF_TB",
       "title": "观测植物高度或盖度未正向填写",
@@ -7169,6 +7495,7 @@
     {
       "id": "ADD_GRASS_063",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GCYF_TB",
       "title": "观测植物是否可食与是否毒害关系异常",
@@ -7193,6 +7520,7 @@
     {
       "id": "ADD_GRASS_064",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GCYF_TB",
       "title": "观测植物分类重复",
@@ -7217,6 +7545,7 @@
     {
       "id": "ADD_GRASS_065",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "ZWDCB_GCYF_TB",
       "title": "观测植物照片数量不足",
@@ -7241,6 +7570,7 @@
     {
       "id": "ADD_GRASS_066",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "ZWDCB_GCYF_TB",
       "title": "观测优势植物盖度占比低于 60%",
@@ -7264,6 +7594,7 @@
     {
       "id": "ADD_GRASS_067",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCY_TB",
       "title": "高大草灌样方面积不是 100 或 25",
@@ -7285,6 +7616,7 @@
     {
       "id": "ADD_GRASS_068",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "MANDATORY",
       "targetTable": "YF_TRCY_TB",
       "title": "高大草灌样方缺少植物调查表",
@@ -7307,6 +7639,7 @@
     {
       "id": "ADD_GRASS_069",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "ZWDCB_GDCG_TB",
       "title": "高大草灌株丛数大于 50",
@@ -7330,6 +7663,7 @@
     {
       "id": "ADD_GRASS_070",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YF_TRCYCC_TB",
       "title": "测产样方草群平均高偏离主要推荐高度",
@@ -7353,6 +7687,7 @@
     {
       "id": "ADD_GRASS_071",
       "sourceId": "grassland-additional-20260526",
+      "enabled": true,
       "severity": "ADVISORY",
       "targetTable": "YF_TRCYGC_TB",
       "title": "观测样方草群平均高偏离主要推荐高度",

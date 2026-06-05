@@ -1,0 +1,21 @@
+id: BASE_6616
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_TRCY_PT
+title: 植被结构为空
+explanation: 来源于 ZDB 内置启用规则：植被结构为空。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - XIAN
+  - XIANG
+  - CUN
+locatorFields:
+  - XIAN
+  - XIANG
+  - CUN
+  - YD_ID
+sql: |-
+  SELECT * FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND (ZB_JG IS NULL OR ZB_JG = '' OR ZB_JG =' ')

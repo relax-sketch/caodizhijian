@@ -1,0 +1,16 @@
+id: ADD_GRASS_002
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_TRCY_PT
+title: 天然草原样地面积不是 0.125
+explanation: 天然草原样地面积统一填写为 0.125。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - MIAN_JI
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, MIAN_JI AS '面积' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND ((MIAN_JI IS NULL OR TRIM(CAST(MIAN_JI AS TEXT)) = '') OR CAST(MIAN_JI AS REAL) <> 0.125)

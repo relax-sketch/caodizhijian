@@ -1,0 +1,18 @@
+id: ADD_GRASS_035
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YX_TRCY_TB
+title: 样线方位角为空或夹角异常
+explanation: 样线方位角不能为空，且同一样地 3 条样线间夹角应约为 120 度。
+requiredTables:
+  - YX_TRCY_TB
+requiredFields:
+  - YD_ID
+  - YX_ID
+  - YX_FWJ
+locatorFields:
+  - YD_ID
+  - YX_ID
+sql: |-
+  SELECT YD_ID, YX_ID, YX_FWJ AS '样线方位角' FROM "YX_TRCY_TB" WHERE YD_ID = :ydId AND ((YX_FWJ IS NULL OR TRIM(CAST(YX_FWJ AS TEXT)) = ''))

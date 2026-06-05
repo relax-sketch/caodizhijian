@@ -1,0 +1,18 @@
+id: ADD_GRASS_031
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YX_TRCY_TB
+title: 样线终点 GNSS 坐标 Y 位数异常
+explanation: 样线终点 GNSS 坐标 Y（米）的整数部分必须为 7 位。
+requiredTables:
+  - YX_TRCY_TB
+requiredFields:
+  - YD_ID
+  - YX_ID
+  - YX_Y
+locatorFields:
+  - YD_ID
+  - YX_ID
+sql: |-
+  SELECT YD_ID, YX_ID, YX_Y AS '终点 GNSS 坐标 Y' FROM "YX_TRCY_TB" WHERE YD_ID = :ydId AND ((YX_Y IS NULL OR TRIM(CAST(YX_Y AS TEXT)) = '') OR LENGTH(CAST(ROUND(ABS(YX_Y), 0) AS INTEGER)) <> 7)

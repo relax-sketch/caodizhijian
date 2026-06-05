@@ -1,0 +1,19 @@
+id: ADD_GRASS_068
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YF_TRCY_TB
+title: 高大草灌样方缺少植物调查表
+explanation: 1 个高大草灌样方下至少 1 个植物调查表。
+requiredTables:
+  - YF_TRCY_TB
+  - ZWDCB_GDCG_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - MZGUID
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT s.YD_ID, s.YF_ID, COUNT(p.PK_UID) AS "高大草灌植物调查数量" FROM "YF_TRCY_TB" s LEFT JOIN "ZWDCB_GDCG_TB" p ON p.XB_GLH = s.MZGUID WHERE s.YD_ID = :ydId GROUP BY s.YD_ID, s.YF_ID HAVING COUNT(p.PK_UID) < 1

@@ -1,0 +1,17 @@
+id: BASE_6833
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YF_JMGDCG_TB
+title: 样地编号为空
+explanation: 来源于 ZDB 内置启用规则：样地编号为空。
+requiredTables:
+  - YF_JMGDCG_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT * FROM "YF_JMGDCG_TB" WHERE YD_ID = :ydId AND (YD_ID IS NULL OR YD_ID ='' OR YD_ID =' ')

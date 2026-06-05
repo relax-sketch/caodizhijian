@@ -50,6 +50,7 @@ def read_enabled_rules(database_path: Path) -> tuple[list[dict[str, Any]], set[s
             {
                 "id": f"BASE_{object_id}",
                 "sourceId": DEFAULT_SOURCE_ID,
+                "enabled": True,
                 "severity": "MANDATORY",
                 "targetTable": target_table,
                 "title": title.strip(),

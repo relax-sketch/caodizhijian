@@ -1,0 +1,16 @@
+id: ADD_GRASS_027
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_TRCY_PT
+title: 基本草原不是未划定
+explanation: 基本草原统一填写为未划定。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - JBCYQK
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, JBCYQK AS '基本草原' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND ((JBCYQK IS NULL OR TRIM(CAST(JBCYQK AS TEXT)) = '') OR JBCYQK <> '3')

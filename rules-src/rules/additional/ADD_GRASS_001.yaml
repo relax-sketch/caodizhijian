@@ -1,0 +1,28 @@
+id: ADD_GRASS_001
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_TRCY_PT
+title: 已调查样地关键字段未填写完整
+explanation: 调查状态为已调查时，省、市、县、乡、村、海拔、地貌、坡度、坡位、坡向、土壤质地、土层厚度必须填写。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - DC_ZT
+  - SHENG
+  - SHI
+  - XIAN
+  - XIANG
+  - CUN
+  - HAI_BA
+  - DI_MAO
+  - PO_DU
+  - PO_WEI
+  - PO_XIANG
+  - TU_RANG_ZD
+  - TU_CENG_HD
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, DC_ZT AS '调查状态', SHENG AS '省', SHI AS '市', XIAN AS '县', XIANG AS '乡', CUN AS '村', HAI_BA AS '海拔', DI_MAO AS '地貌', PO_DU AS '坡度', PO_WEI AS '坡位', PO_XIANG AS '坡向', TU_RANG_ZD AS '土壤质地', TU_CENG_HD AS '土层厚度' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND (DC_ZT = '1' AND ((SHENG IS NULL OR TRIM(CAST(SHENG AS TEXT)) = '') OR (SHI IS NULL OR TRIM(CAST(SHI AS TEXT)) = '') OR (XIAN IS NULL OR TRIM(CAST(XIAN AS TEXT)) = '') OR (XIANG IS NULL OR TRIM(CAST(XIANG AS TEXT)) = '') OR (CUN IS NULL OR TRIM(CAST(CUN AS TEXT)) = '') OR (HAI_BA IS NULL OR TRIM(CAST(HAI_BA AS TEXT)) = '') OR (DI_MAO IS NULL OR TRIM(CAST(DI_MAO AS TEXT)) = '') OR (PO_DU IS NULL OR TRIM(CAST(PO_DU AS TEXT)) = '') OR (PO_WEI IS NULL OR TRIM(CAST(PO_WEI AS TEXT)) = '') OR (PO_XIANG IS NULL OR TRIM(CAST(PO_XIANG AS TEXT)) = '') OR (TU_RANG_ZD IS NULL OR TRIM(CAST(TU_RANG_ZD AS TEXT)) = '') OR (TU_CENG_HD IS NULL OR TRIM(CAST(TU_CENG_HD AS TEXT)) = '')))

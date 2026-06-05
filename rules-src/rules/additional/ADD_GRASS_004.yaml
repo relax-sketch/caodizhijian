@@ -1,0 +1,16 @@
+id: ADD_GRASS_004
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_TRCY_PT
+title: 中心桩 GNSS 坐标 Y 位数异常
+explanation: 中心桩 GNSS 坐标 Y（米）的整数部分必须为 7 位。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - ZUOBIAO_Y
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, ZUOBIAO_Y AS '中心桩 GNSS 坐标 Y' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND ((ZUOBIAO_Y IS NULL OR TRIM(CAST(ZUOBIAO_Y AS TEXT)) = '') OR LENGTH(CAST(ROUND(ABS(ZUOBIAO_Y), 0) AS INTEGER)) <> 7)

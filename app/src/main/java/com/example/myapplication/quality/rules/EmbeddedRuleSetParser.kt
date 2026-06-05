@@ -61,6 +61,7 @@ object EmbeddedRuleSetParser {
                 requiredFields = rule.requireTextArray("requiredFields", "rule").requireNonEmpty("requiredFields"),
                 locatorFields = rule.requireTextArray("locatorFields", "rule").requireNonEmpty("locatorFields"),
                 sql = rule.requireText("sql", "rule"),
+                enabled = rule.optionalBoolean("enabled", "rule", default = true),
             )
         }.requireNonEmpty("rules")
 
@@ -108,6 +109,14 @@ object EmbeddedRuleSetParser {
         val values = requireArray(name, context).mapStrings(name)
         requireUnique(values, "$context $name entry")
         return values
+    }
+
+    private fun JSONObject.optionalBoolean(name: String, context: String, default: Boolean): Boolean {
+        if (!has(name)) {
+            return default
+        }
+        val value = get(name)
+        return value as? Boolean ?: invalid("$context must contain boolean '$name'.")
     }
 
     private inline fun <T> JSONArray.mapObjects(name: String, transform: (JSONObject) -> T): List<T> =

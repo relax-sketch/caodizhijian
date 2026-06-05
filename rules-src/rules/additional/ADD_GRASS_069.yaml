@@ -1,0 +1,20 @@
+id: ADD_GRASS_069
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: ZWDCB_GDCG_TB
+title: 高大草灌株丛数大于 50
+explanation: 高大草灌植物调查株丛数大于 50 时，请核实是否有误。
+requiredTables:
+  - ZWDCB_GDCG_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - MC
+  - ZS
+locatorFields:
+  - YD_ID
+  - YF_ID
+  - MC
+sql: |-
+  SELECT YD_ID, YF_ID, MC, ZS AS '株丛数' FROM "ZWDCB_GDCG_TB" WHERE YD_ID = :ydId AND (ZS IS NOT NULL AND CAST(ZS AS REAL) > 50)

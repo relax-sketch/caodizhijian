@@ -1,0 +1,19 @@
+id: BASE_6825
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: ZWDCB_JMCCYF_TB
+title: 是否毒害为空
+explanation: 来源于 ZDB 内置启用规则：是否毒害为空。
+requiredTables:
+  - ZWDCB_JMCCYF_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - ZW_MC
+locatorFields:
+  - YD_ID
+  - YF_ID
+  - ZW_MC
+sql: |-
+  SELECT * FROM "ZWDCB_JMCCYF_TB" WHERE YD_ID = :ydId AND (DUHAI IS NULL OR DUHAI ='' OR DUHAI =' ')

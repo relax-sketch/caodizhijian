@@ -1,0 +1,20 @@
+id: ADD_GRASS_052
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: ZWDCB_CCYF_TB
+title: 测产优势植物鲜重占比低于 60%
+explanation: 测产样方优势植物产草量鲜重之和小于测产样方合计鲜重的 60% 时提示核对。
+requiredTables:
+  - YF_TRCYCC_TB
+  - ZWDCB_CCYF_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - YOUSHIZHONG
+  - CCL_XIAN
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT s.YD_ID, s.YF_ID, SUM(CASE WHEN p.YOUSHIZHONG = "1" THEN CAST(p.CCL_XIAN AS REAL) ELSE 0 END) AS "优势植物鲜重和", s.HJ_XZ AS "样方合计鲜重" FROM "YF_TRCYCC_TB" s JOIN "ZWDCB_CCYF_TB" p ON p.XB_GLH = s.MZGUID WHERE s.YD_ID = :ydId GROUP BY s.YD_ID, s.YF_ID, s.HJ_XZ HAVING s.HJ_XZ IS NOT NULL AND SUM(CASE WHEN p.YOUSHIZHONG = "1" THEN CAST(p.CCL_XIAN AS REAL) ELSE 0 END) < CAST(s.HJ_XZ AS REAL) * 0.6

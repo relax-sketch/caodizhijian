@@ -1,0 +1,21 @@
+id: BASE_6907
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_JM_PT
+title: 荒漠调查区类型为石漠化调查区时，基岩裸露度为空或不在1%-100%之间
+explanation: 来源于 ZDB 内置启用规则：荒漠调查区类型为石漠化调查区时，基岩裸露度为空或不在1%-100%之间。
+requiredTables:
+  - YD_JM_PT
+requiredFields:
+  - YD_ID
+  - XIAN
+  - XIANG
+  - CUN
+locatorFields:
+  - XIAN
+  - XIANG
+  - CUN
+  - YD_ID
+sql: |-
+  SELECT * FROM "YD_JM_PT" WHERE YD_ID = :ydId AND (HMDCQLX='4' AND (ROCK_EXPOSURE IS NULL OR ROCK_EXPOSURE<1 OR ROCK_EXPOSURE>100 OR TRIM(ROCK_EXPOSURE)=''))

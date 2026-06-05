@@ -1,0 +1,21 @@
+id: ADD_GRASS_049
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: ZWDCB_CCYF_TB
+title: 测产植物是否可食与是否毒害关系异常
+explanation: 测产样方植物调查是否可食和是否毒害不能同时为是或同时为否。
+requiredTables:
+  - ZWDCB_CCYF_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - ZW_MC
+  - KESHI
+  - DUHAI
+locatorFields:
+  - YD_ID
+  - YF_ID
+  - ZW_MC
+sql: |-
+  SELECT YD_ID, YF_ID, ZW_MC, KESHI AS '是否可食', DUHAI AS '是否毒害' FROM "ZWDCB_CCYF_TB" WHERE YD_ID = :ydId AND (KESHI = DUHAI AND KESHI IN ('1','2'))

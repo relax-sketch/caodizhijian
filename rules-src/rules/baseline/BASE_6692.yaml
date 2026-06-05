@@ -1,0 +1,17 @@
+id: BASE_6692
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YX_TRCY_TB
+title: 是否改平为空
+explanation: 来源于 ZDB 内置启用规则：是否改平为空。
+requiredTables:
+  - YX_TRCY_TB
+requiredFields:
+  - YD_ID
+  - YX_ID
+locatorFields:
+  - YD_ID
+  - YX_ID
+sql: |-
+  SELECT * FROM "YX_TRCY_TB" WHERE YD_ID = :ydId AND (YX_GP IS NULL OR YX_GP ='' OR YX_GP=' ')

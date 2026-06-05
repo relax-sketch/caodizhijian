@@ -468,7 +468,12 @@ YD_RGCD_PT (人工草地样地) - 独立，无子表关联
 
 ### 4.4 当前附加规则增改说明（2026-06-04）
 
-以下规则已在 `app/src/main/assets/rules/rule-set.json` 中由生成脚本 `tools/rules/add_initial_additional_rules.py` 重新生成：
+以下规则已在 `app/src/main/assets/rules/rule-set.json` 中生成；后续规则维护请修改 `rules-src/`，然后运行：
+
+```bash
+python tools/validate_rules.py
+python tools/build_rules.py
+```
 
 | 规则ID | 类型 | 规则说明 |
 |---|---|---|

@@ -1,0 +1,21 @@
+id: BASE_6630
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_TRCY_PT
+title: 坡度应在0-90之间
+explanation: 来源于 ZDB 内置启用规则：坡度应在0-90之间。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - XIAN
+  - XIANG
+  - CUN
+locatorFields:
+  - XIAN
+  - XIANG
+  - CUN
+  - YD_ID
+sql: |-
+  SELECT * FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND (PO_DU IS NULL OR PO_DU <0 OR PO_DU >90 OR TRIM(PO_DU)='')

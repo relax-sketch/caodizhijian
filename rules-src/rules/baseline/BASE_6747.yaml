@@ -1,0 +1,17 @@
+id: BASE_6747
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YX_TRCY_TB
+title: 13号记录连续裸斑为空
+explanation: 来源于 ZDB 内置启用规则：13号记录连续裸斑为空。
+requiredTables:
+  - YX_TRCY_TB
+requiredFields:
+  - YD_ID
+  - YX_ID
+locatorFields:
+  - YD_ID
+  - YX_ID
+sql: |-
+  SELECT * FROM "YX_TRCY_TB" WHERE YD_ID = :ydId AND (ZCJL_LXLB_13 IS NULL OR ZCJL_LXLB_13 ='' OR ZCJL_LXLB_13=' ')

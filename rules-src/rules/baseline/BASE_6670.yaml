@@ -1,0 +1,21 @@
+id: BASE_6670
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_JM_PT
+title: 地表侵蚀类型不为无侵蚀时，地表侵蚀程度为空
+explanation: 来源于 ZDB 内置启用规则：地表侵蚀类型不为无侵蚀时，地表侵蚀程度为空。
+requiredTables:
+  - YD_JM_PT
+requiredFields:
+  - YD_ID
+  - XIAN
+  - XIANG
+  - CUN
+locatorFields:
+  - XIAN
+  - XIANG
+  - CUN
+  - YD_ID
+sql: |-
+  SELECT * FROM "YD_JM_PT" WHERE YD_ID = :ydId AND (DB_QS_LX !='5' AND (DB_QS_CD IS NULL OR DB_QS_CD ='' OR DB_QS_CD= ' '))

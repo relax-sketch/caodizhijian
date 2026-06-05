@@ -1,0 +1,21 @@
+id: BASE_6684
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_JM_PT
+title: 近景照未拍摄
+explanation: 来源于 ZDB 内置启用规则：近景照未拍摄。
+requiredTables:
+  - YD_JM_PT
+requiredFields:
+  - YD_ID
+  - XIAN
+  - XIANG
+  - CUN
+locatorFields:
+  - XIAN
+  - XIANG
+  - CUN
+  - YD_ID
+sql: |-
+  SELECT * FROM "YD_JM_PT" WHERE YD_ID = :ydId AND (JJ_ZP is null OR JJ_ZP='' OR JJ_ZP=' ')

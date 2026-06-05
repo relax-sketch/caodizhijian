@@ -1,0 +1,19 @@
+id: ADD_GRASS_059
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YF_TRCYGC_TB
+title: 观测样方植物调查表少于 2 条
+explanation: 一个观测样方下至少 2 个植物调查表。
+requiredTables:
+  - YF_TRCYGC_TB
+  - ZWDCB_GCYF_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - MZGUID
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT s.YD_ID, s.YF_ID, COUNT(p.PK_UID) AS "观测植物调查数量" FROM "YF_TRCYGC_TB" s LEFT JOIN "ZWDCB_GCYF_TB" p ON p.XB_GLH = s.MZGUID WHERE s.YD_ID = :ydId GROUP BY s.YD_ID, s.YF_ID HAVING COUNT(p.PK_UID) < 2

@@ -1,0 +1,19 @@
+id: ADD_GRASS_028
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_TRCY_PT
+title: 样地照片未满足四类要求
+explanation: 近景、远景、土壤、中心桩每个类型至少一张照片。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - ZXZ_ZP
+  - YJ_ZP
+  - JJ_ZP
+  - TR_ZP
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, ZXZ_ZP AS '中心桩照片', YJ_ZP AS '远景照', JJ_ZP AS '近景照', TR_ZP AS '土壤照片' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND ((ZXZ_ZP IS NULL OR TRIM(CAST(ZXZ_ZP AS TEXT)) = '') OR (YJ_ZP IS NULL OR TRIM(CAST(YJ_ZP AS TEXT)) = '') OR (JJ_ZP IS NULL OR TRIM(CAST(JJ_ZP AS TEXT)) = '') OR (TR_ZP IS NULL OR TRIM(CAST(TR_ZP AS TEXT)) = ''))

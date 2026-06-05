@@ -59,6 +59,7 @@ class QualityCheckEngineTest {
                 rules = listOf(
                     rule(id = "ACTIVE", targetTable = "YD_TRCY_PT"),
                     rule(id = "DISABLED", targetTable = "YD_JM_PT"),
+                    rule(id = "DISABLED_BY_FLAG", targetTable = "YD_TRCY_PT", enabled = false),
                 ),
             ),
             checker,
@@ -131,6 +132,7 @@ class QualityCheckEngineTest {
         id: String = "TEST",
         targetTable: String = "YD_TRCY_PT",
         sourceId: String = "test",
+        enabled: Boolean = true,
     ): EmbeddedRule =
         EmbeddedRule(
             id = id,
@@ -143,6 +145,7 @@ class QualityCheckEngineTest {
             requiredFields = listOf("YD_ID"),
             locatorFields = listOf("YD_ID"),
             sql = "SELECT YD_ID FROM $targetTable WHERE YD_ID = :ydId",
+            enabled = enabled,
         )
 
     private class RecordingPlotChecker : PlotChecker {

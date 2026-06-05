@@ -1,0 +1,18 @@
+id: ADD_GRASS_029
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YX_TRCY_TB
+title: 样线长度不是 20 米
+explanation: 样线长度统一填写为 20 米。
+requiredTables:
+  - YX_TRCY_TB
+requiredFields:
+  - YD_ID
+  - YX_ID
+  - YX_CD
+locatorFields:
+  - YD_ID
+  - YX_ID
+sql: |-
+  SELECT YD_ID, YX_ID, YX_CD AS '样线长度' FROM "YX_TRCY_TB" WHERE YD_ID = :ydId AND ((YX_CD IS NULL OR TRIM(CAST(YX_CD AS TEXT)) = '') OR CAST(YX_CD AS REAL) <> 20)

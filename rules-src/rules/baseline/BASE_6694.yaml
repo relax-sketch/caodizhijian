@@ -1,0 +1,17 @@
+id: BASE_6694
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YX_TRCY_TB
+title: 样线终点GNSS坐标Y为空
+explanation: 来源于 ZDB 内置启用规则：样线终点GNSS坐标Y为空。
+requiredTables:
+  - YX_TRCY_TB
+requiredFields:
+  - YD_ID
+  - YX_ID
+locatorFields:
+  - YD_ID
+  - YX_ID
+sql: |-
+  SELECT * FROM "YX_TRCY_TB" WHERE YD_ID = :ydId AND (YX_Y IS NULL OR YX_Y ='' OR  TRIM(YX_Y)=' ')

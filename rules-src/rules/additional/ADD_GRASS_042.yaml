@@ -1,0 +1,19 @@
+id: ADD_GRASS_042
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YF_TRCYCC_TB
+title: 测产样方盖度与样地盖度差值超过 20%
+explanation: 测产样方盖度与样地盖度差值超过 20% 时提示人工检查核对。
+requiredTables:
+  - YF_TRCYCC_TB
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - ZGD
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT s.YD_ID, s.YF_ID, s.ZGD AS "测产样方盖度", p.CDGD AS "样地盖度" FROM "YF_TRCYCC_TB" s JOIN "YD_TRCY_PT" p ON p.YD_ID = s.YD_ID WHERE s.YD_ID = :ydId AND s.ZGD IS NOT NULL AND p.CDGD IS NOT NULL AND ABS(CAST(s.ZGD AS REAL) - CAST(p.CDGD AS REAL)) > 20

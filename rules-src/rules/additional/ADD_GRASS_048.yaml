@@ -1,0 +1,21 @@
+id: ADD_GRASS_048
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: ZWDCB_CCYF_TB
+title: 测产植物产草量鲜重不大于干重
+explanation: 测产样方植物调查表中产草量鲜重必须大于产草量干重。
+requiredTables:
+  - ZWDCB_CCYF_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - ZW_MC
+  - CCL_XIAN
+  - CCL_GAN
+locatorFields:
+  - YD_ID
+  - YF_ID
+  - ZW_MC
+sql: |-
+  SELECT YD_ID, YF_ID, ZW_MC, CCL_XIAN AS '产草量鲜重', CCL_GAN AS '产草量干重' FROM "ZWDCB_CCYF_TB" WHERE YD_ID = :ydId AND (CCL_XIAN IS NOT NULL AND CCL_GAN IS NOT NULL AND CAST(CCL_XIAN AS REAL) <= CAST(CCL_GAN AS REAL))

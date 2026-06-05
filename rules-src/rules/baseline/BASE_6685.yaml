@@ -1,0 +1,22 @@
+id: BASE_6685
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_JM_PT
+title: 缺少加密样地测产样方
+explanation: 来源于 ZDB 内置启用规则：缺少加密样地测产样方。
+requiredTables:
+  - YD_JM_PT
+  - YF_JMCC_TB
+requiredFields:
+  - YD_ID
+  - XIAN
+  - XIANG
+  - CUN
+locatorFields:
+  - XIAN
+  - XIANG
+  - CUN
+  - YD_ID
+sql: |-
+  SELECT * FROM "YD_JM_PT" WHERE YD_ID = :ydId AND (MZGUID NOT IN (SELECT XB_GLH FROM YF_JMCC_TB WHERE XB_GLH IS NOT NULL))

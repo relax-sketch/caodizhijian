@@ -15,6 +15,25 @@ class EmbeddedRuleSetParserTest {
         assertEquals(RuleSourceKind.BASE_SNAPSHOT, ruleSet.sources.single().kind)
         assertEquals(RuleSeverity.MANDATORY, ruleSet.rules.single().severity)
         assertEquals(listOf("XIAN", "YD_ID"), ruleSet.rules.single().locatorFields)
+        assertTrue(ruleSet.rules.single().enabled)
+    }
+
+    @Test
+    fun parse_missingEnabled_defaultsToTrueForBackwardCompatibility() {
+        val json = validRuleSetJson().replace("          \"enabled\": true,\n", "")
+
+        val ruleSet = EmbeddedRuleSetParser.parse(json)
+
+        assertTrue(ruleSet.rules.single().enabled)
+    }
+
+    @Test
+    fun parse_nonBooleanEnabled_rejectsRuleSet() {
+        val exception = assertThrows(RuleSetValidationException::class.java) {
+            EmbeddedRuleSetParser.parse(validRuleSetJson().replace("\"enabled\": true", "\"enabled\": \"true\""))
+        }
+
+        assertTrue(exception.message.orEmpty().contains("boolean 'enabled'"))
     }
 
     @Test
@@ -84,6 +103,7 @@ class EmbeddedRuleSetParserTest {
         {
           "id": "YD_TRCY_001",
           "sourceId": "baseline-20260526",
+          "enabled": true,
           "severity": "MANDATORY",
           "targetTable": "YD_TRCY_PT",
           "title": "Missing investigator",

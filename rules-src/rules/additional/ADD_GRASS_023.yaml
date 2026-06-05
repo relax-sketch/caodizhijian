@@ -1,0 +1,18 @@
+id: ADD_GRASS_023
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_TRCY_PT
+title: 坡度与坡向坡位关系异常
+explanation: 坡度小于 5 度时，坡位应为无坡或平地，坡向应为无坡向；坡度大于 5 度时，必须填写具体坡向及具体坡位。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - PO_DU
+  - PO_WEI
+  - PO_XIANG
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, PO_DU AS '坡度', PO_WEI AS '坡位', PO_XIANG AS '坡向' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND ((PO_DU IS NOT NULL AND CAST(PO_DU AS REAL) < 5 AND (PO_WEI IS NULL OR PO_WEI NOT IN ('0','6') OR PO_XIANG IS NULL OR PO_XIANG <> '9')) OR (PO_DU IS NOT NULL AND CAST(PO_DU AS REAL) > 5 AND (PO_WEI IS NULL OR PO_WEI IN ('0','6') OR PO_XIANG IS NULL OR PO_XIANG = '9')))

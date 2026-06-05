@@ -1,0 +1,18 @@
+id: ADD_GRASS_032
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YX_TRCY_TB
+title: 样线盖度低于 60
+explanation: 样线盖度低于 60 时提示人工检查核对。
+requiredTables:
+  - YX_TRCY_TB
+requiredFields:
+  - YD_ID
+  - YX_ID
+  - YX_GD
+locatorFields:
+  - YD_ID
+  - YX_ID
+sql: |-
+  SELECT YD_ID, YX_ID, YX_GD AS '样线盖度' FROM "YX_TRCY_TB" WHERE YD_ID = :ydId AND (YX_GD IS NOT NULL AND CAST(YX_GD AS REAL) < 60)

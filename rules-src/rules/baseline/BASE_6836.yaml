@@ -1,0 +1,18 @@
+id: BASE_6836
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YF_JMGDCG_TB
+title: 缺少加密样地高大草灌植物调查表
+explanation: 来源于 ZDB 内置启用规则：缺少加密样地高大草灌植物调查表。
+requiredTables:
+  - YF_JMGDCG_TB
+  - ZWDCB_JMGDCG_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT * FROM "YF_JMGDCG_TB" WHERE YD_ID = :ydId AND (MZGUID NOT IN (SELECT XB_GLH FROM ZWDCB_JMGDCG_TB WHERE XB_GLH IS NOT NULL ))

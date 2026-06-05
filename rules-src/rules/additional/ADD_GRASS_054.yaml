@@ -1,0 +1,15 @@
+id: ADD_GRASS_054
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YF_TRCYGC_TB
+title: 观测样方不足 3 个
+explanation: 一个样地必须有 3 个观测样方。
+requiredTables:
+  - YF_TRCYGC_TB
+requiredFields:
+  - YD_ID
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, COUNT(*) AS "观测样方数量" FROM "YF_TRCYGC_TB" WHERE YD_ID = :ydId GROUP BY YD_ID HAVING COUNT(*) <> 3

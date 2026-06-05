@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
-"""Append SQL-converted grassland spreadsheet rules to the embedded rule set."""
+"""Deprecated legacy generator.
+
+Do not use this script for rule maintenance. Edit rules in `rules-src/`, then run:
+
+    python tools/validate_rules.py
+    python tools/build_rules.py
+
+This file is kept only as historical reference for the one-off SQL conversion that
+originally appended additional grassland rules to the embedded JSON.
+"""
 
 from __future__ import annotations
 
@@ -586,6 +595,7 @@ def rule_to_json(spec: RuleSpec) -> dict[str, Any]:
     return {
         "id": f"ADD_GRASS_{spec.source_number:03d}",
         "sourceId": SOURCE_ID,
+        "enabled": spec.source_number != 34,
         "severity": spec.severity,
         "targetTable": spec.table,
         "title": spec.title,

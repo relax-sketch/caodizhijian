@@ -1,0 +1,16 @@
+id: ADD_GRASS_020
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YD_TRCY_PT
+title: 盐碱斑块面积比例超过 20%
+explanation: 盐碱斑块面积比例超过 20% 时提示人工检查核对。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - YJB_BL
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, YJB_BL AS '盐碱斑块面积比例' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND (YJB_BL IS NOT NULL AND CAST(YJB_BL AS REAL) > 20)

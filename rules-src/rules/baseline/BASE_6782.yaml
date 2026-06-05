@@ -1,0 +1,18 @@
+id: BASE_6782
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YF_TRCYGC_TB
+title: "当总盖度不为0时，\r\n必须填写观测样方植物调查表"
+explanation: "来源于 ZDB 内置启用规则：当总盖度不为0时，\r\n必须填写观测样方植物调查表。"
+requiredTables:
+  - YF_TRCYGC_TB
+  - ZWDCB_GCYF_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT * FROM "YF_TRCYGC_TB" WHERE YD_ID = :ydId AND (ZGD!=0 AND MZGUID NOT IN (SELECT XB_GLH FROM ZWDCB_GCYF_TB WHERE XB_GLH IS NOT NULL ))

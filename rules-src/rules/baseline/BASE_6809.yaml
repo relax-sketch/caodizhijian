@@ -1,0 +1,19 @@
+id: BASE_6809
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: ZWDCB_CCYF_TB
+title: 样方号为空
+explanation: 来源于 ZDB 内置启用规则：样方号为空。
+requiredTables:
+  - ZWDCB_CCYF_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - ZW_MC
+locatorFields:
+  - YD_ID
+  - YF_ID
+  - ZW_MC
+sql: |-
+  SELECT * FROM "ZWDCB_CCYF_TB" WHERE YD_ID = :ydId AND (YF_ID IS NULL OR YF_ID ='' OR YF_ID =' ')

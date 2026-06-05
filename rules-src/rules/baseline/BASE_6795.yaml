@@ -1,0 +1,17 @@
+id: BASE_6795
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YF_TRCYCC_TB
+title: 草群平均高度为空
+explanation: 来源于 ZDB 内置启用规则：草群平均高度为空。
+requiredTables:
+  - YF_TRCYCC_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT * FROM "YF_TRCYCC_TB" WHERE YD_ID = :ydId AND (CQPJ_GD IS NULL OR TRIM(CQPJ_GD) ='' OR CQPJ_GD <0)

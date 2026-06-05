@@ -39,4 +39,5 @@ data class EmbeddedRule(
     val requiredFields: List<String>,
     val locatorFields: List<String>,
     val sql: String,
+    val enabled: Boolean = true,
 )

@@ -1,0 +1,18 @@
+id: ADD_GRASS_010
+sourceId: grassland-additional-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YD_TRCY_PT
+title: 草地型与草地类不对应
+explanation: 天然草原样地草原型应与草原类对应；当前规则先检查草地型为空或其他草地型说明缺失。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - CD_L
+  - CD_XING
+  - CD_XING_QT
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, CD_L AS '草地类', CD_XING AS '草地型', CD_XING_QT AS '其他草地型' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND ((CD_L IS NULL OR TRIM(CAST(CD_L AS TEXT)) = '') OR (CD_XING IS NULL OR TRIM(CAST(CD_XING AS TEXT)) = '') OR (CD_XING = '826' AND (CD_XING_QT IS NULL OR TRIM(CAST(CD_XING_QT AS TEXT)) = '')))

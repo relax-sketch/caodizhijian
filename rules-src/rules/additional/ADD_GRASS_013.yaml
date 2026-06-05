@@ -1,0 +1,16 @@
+id: ADD_GRASS_013
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: YD_TRCY_PT
+title: 单位面积鲜草产量超过 8000
+explanation: 单位面积鲜草产量超过 8000 时提示人工检查核对。
+requiredTables:
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - XC_CL
+locatorFields:
+  - YD_ID
+sql: |-
+  SELECT YD_ID, XC_CL AS '单位面积鲜草产量' FROM "YD_TRCY_PT" WHERE YD_ID = :ydId AND (XC_CL IS NOT NULL AND CAST(XC_CL AS REAL) > 8000)

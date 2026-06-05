@@ -1,0 +1,20 @@
+id: ADD_GRASS_053
+sourceId: grassland-additional-20260526
+enabled: true
+severity: ADVISORY
+targetTable: ZWDCB_CCYF_TB
+title: 测产优势植物名称与样地优势草种不一致
+explanation: 测产样方优势种为是的植物名称至少有一项应与样地调查表优势草种一致；植物名称和优势草种均按逗号、顿号切分，并兼容样地优势草种中“具xxx的”前缀写法。
+requiredTables:
+  - ZWDCB_CCYF_TB
+  - YD_TRCY_PT
+requiredFields:
+  - YD_ID
+  - YF_ID
+  - ZW_MC
+  - YOUSHIZHONG
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  WITH RECURSIVE base AS (SELECT p.YD_ID, p.YF_ID, p.ZW_MC, p.YOUSHIZHONG, yd.YS_CZ FROM "ZWDCB_CCYF_TB" p JOIN "YD_TRCY_PT" yd ON yd.YD_ID = p.YD_ID WHERE p.YD_ID = :ydId), plant_split(YD_ID, YF_ID, plant, rest) AS (SELECT YD_ID, YF_ID, "", REPLACE(REPLACE(REPLACE(REPLACE(TRIM(ZW_MC), ',', '，'), '、', '，'), ' ', ''), '　', '') || "，" FROM base WHERE YOUSHIZHONG = "1" AND ZW_MC IS NOT NULL AND TRIM(ZW_MC) <> "" UNION ALL SELECT YD_ID, YF_ID, TRIM(SUBSTR(rest, 1, INSTR(rest, "，") - 1)), SUBSTR(rest, INSTR(rest, "，") + 1) FROM plant_split WHERE rest <> "" AND INSTR(rest, "，") > 0), plot_seed AS (SELECT DISTINCT YD_ID, YF_ID, YS_CZ FROM base WHERE YS_CZ IS NOT NULL AND TRIM(YS_CZ) <> ""), dominant_split(YD_ID, YF_ID, dominant, rest) AS (SELECT YD_ID, YF_ID, "", REPLACE(REPLACE(REPLACE(REPLACE(TRIM(YS_CZ), ',', '，'), '、', '，'), ' ', ''), '　', '') || "，" FROM plot_seed UNION ALL SELECT YD_ID, YF_ID, TRIM(SUBSTR(rest, 1, INSTR(rest, "，") - 1)), SUBSTR(rest, INSTR(rest, "，") + 1) FROM dominant_split WHERE rest <> "" AND INSTR(rest, "，") > 0), plot_dominants AS (SELECT YD_ID, YF_ID, CASE WHEN dominant LIKE '具%的%' THEN SUBSTR(dominant, INSTR(dominant, '的') + 1) ELSE dominant END AS dominant_plant FROM dominant_split WHERE dominant <> ""), summary AS (SELECT YD_ID, YF_ID, GROUP_CONCAT(CASE WHEN YOUSHIZHONG = "1" THEN ZW_MC END) AS "测产优势植物", YS_CZ AS "样地优势草种" FROM base GROUP BY YD_ID, YF_ID, YS_CZ), matches AS (SELECT p.YD_ID, p.YF_ID, COUNT(*) AS hit_count FROM plant_split p JOIN plot_dominants d ON d.YD_ID = p.YD_ID AND d.YF_ID = p.YF_ID AND d.dominant_plant = p.plant WHERE p.plant <> '' GROUP BY p.YD_ID, p.YF_ID) SELECT s.YD_ID, s.YF_ID, s."测产优势植物", s."样地优势草种" FROM summary s LEFT JOIN matches m ON m.YD_ID = s.YD_ID AND m.YF_ID = s.YF_ID WHERE s."测产优势植物" IS NOT NULL AND COALESCE(m.hit_count, 0) = 0

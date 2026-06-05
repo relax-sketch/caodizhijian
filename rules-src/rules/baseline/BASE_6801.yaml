@@ -1,0 +1,17 @@
+id: BASE_6801
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YF_JMCC_TB
+title: 样方号为空
+explanation: 来源于 ZDB 内置启用规则：样方号为空。
+requiredTables:
+  - YF_JMCC_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT * FROM "YF_JMCC_TB" WHERE YD_ID = :ydId AND (YF_ID IS NULL OR TRIM(YF_ID) ='')

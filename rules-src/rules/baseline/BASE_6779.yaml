@@ -1,0 +1,17 @@
+id: BASE_6779
+sourceId: zdb-baseline-20260526
+enabled: true
+severity: MANDATORY
+targetTable: YF_TRCYGC_TB
+title: 总盖度为空
+explanation: 来源于 ZDB 内置启用规则：总盖度为空。
+requiredTables:
+  - YF_TRCYGC_TB
+requiredFields:
+  - YD_ID
+  - YF_ID
+locatorFields:
+  - YD_ID
+  - YF_ID
+sql: |-
+  SELECT * FROM "YF_TRCYGC_TB" WHERE YD_ID = :ydId AND (ZGD IS NULL OR TRIM(ZGD)='' OR ZGD<0 OR ZGD>100)
